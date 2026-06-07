@@ -1,4 +1,13 @@
-import { ArrowRightIcon } from "@/components/ui/arrow-right";
+"use client";
+
+import { useRef, useState } from "react";
+
+import { AnimatedText } from "@/components/atoms/animated-text";
+import {
+  ArrowRightIcon,
+  type ArrowRightIconHandle,
+} from "@/components/ui/arrow-right";
+
 import { cn } from "@/lib/utils";
 
 type SecondaryButtonTone = "default" | "inverse";
@@ -17,17 +26,34 @@ export function SecondaryButton({
   className,
   tone = "default",
 }: SecondaryButtonProps) {
+  const arrowIconRef = useRef<ArrowRightIconHandle>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  function handleMouseEnter() {
+    setIsHovered(true);
+    arrowIconRef.current?.startAnimation();
+  }
+
+  function handleMouseLeave() {
+    setIsHovered(false);
+    arrowIconRef.current?.stopAnimation();
+  }
+
   return (
     <button
       className={cn(
-        "type-s-button inline-flex min-h-13 items-center justify-between gap-12 border p-4 uppercase",
+        "type-s-button inline-flex cursor-pointer items-center justify-between border p-4 uppercase",
         toneClassNames[tone],
         className
       )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       type="button"
     >
-      <span>Get in touch</span>
-      <ArrowRightIcon aria-hidden="true" size={18} />
+      <AnimatedText active={isHovered} center>
+        Get in touch
+      </AnimatedText>
+      <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
     </button>
   );
 }

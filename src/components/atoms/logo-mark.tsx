@@ -10,12 +10,15 @@ export function LogoMark({ className }: LogoMarkProps) {
   return (
     <div
       className={cn(
-        "flex min-h-13 items-center justify-center gap-1 border border-border-primary bg-background-primary p-4 text-text-primary",
-        className
+        "flex items-center justify-center border border-border-primary bg-background-primary text-text-primary",
+        className,
       )}
     >
-      <Logo aria-hidden="true" />
-      <ContrastIcon aria-hidden="true" size={10} />
+      <div className="flex items-end gap-1">
+        <Logo aria-hidden="true" />
+        <ContrastIcon aria-hidden="true" size={12} />
+      </div>
     </div>
   );
 }
+
