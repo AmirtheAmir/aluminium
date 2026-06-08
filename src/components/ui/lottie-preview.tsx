@@ -1,11 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef } from "react";
-import Lottie, { type LottieRefCurrentProps } from "lottie-react";
+import type {
+  LottieComponentProps,
+  LottieRefCurrentProps,
+} from "lottie-react";
 
 import { cn } from "@/lib/utils";
 
 export type LottieAnimation = unknown;
+
+const Lottie = dynamic<LottieComponentProps>(() => import("lottie-react"), {
+  ssr: false,
+});
 
 interface LottiePreviewProps {
   animationData: LottieAnimation;

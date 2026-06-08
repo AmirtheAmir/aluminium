@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useRef, type HTMLAttributes } from "react";
+import { memo, useEffect, useId, useRef, type HTMLAttributes } from "react";
 
 const TWO_PI = Math.PI * 2;
 
@@ -45,6 +45,7 @@ const DotField = memo(function DotField({
   glowColor = "#120F17",
   ...rest
 }: DotFieldProps) {
+  const id = useId();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const glowRef = useRef<SVGCircleElement>(null);
   const dotsRef = useRef<Dot[]>([]);
@@ -59,6 +60,7 @@ const DotField = memo(function DotField({
   const sizeRef = useRef({ w: 0, h: 0, offsetX: 0, offsetY: 0 });
   const glowOpacity = useRef(0);
   const engagement = useRef(0);
+  const glowId = `dot-field-glow-${id.replaceAll(":", "")}`;
   const propsRef = useRef({
     dotRadius,
     dotSpacing,
@@ -72,9 +74,6 @@ const DotField = memo(function DotField({
     gradientTo,
   });
   const rebuildRef = useRef<(() => void) | null>(null);
-  const glowIdRef = useRef(
-    `dot-field-glow-${Math.random().toString(36).slice(2, 9)}`,
-  );
 
   propsRef.current = {
     dotRadius,
@@ -323,7 +322,7 @@ const DotField = memo(function DotField({
         }}
       >
         <defs>
-          <radialGradient id={glowIdRef.current}>
+          <radialGradient id={glowId}>
             <stop offset="0%" stopColor={glowColor} stopOpacity="1" />
             <stop offset="100%" stopColor={glowColor} stopOpacity="0" />
           </radialGradient>
@@ -333,7 +332,7 @@ const DotField = memo(function DotField({
           cx="-9999"
           cy="-9999"
           r={glowRadius}
-          fill={`url(#${glowIdRef.current})`}
+          fill={`url(#${glowId})`}
           style={{ opacity: 0, willChange: "opacity" }}
         />
       </svg>
