@@ -11,6 +11,7 @@
   --font-sans: var(--font-family-inter);
   --color-sand-light-0: var(--sand-light-0);
   --color-sand-light-200: var(--sand-light-200);
+  --color-sand-light-300: var(--sand-light-300);
   --color-sand-light-500: var(--sand-light-500);
   --color-sand-light-600: var(--sand-light-600);
   --color-sand-light-800: var(--sand-light-800);
@@ -18,6 +19,7 @@
   --color-sand-light-950: var(--sand-light-950);
   --color-sand-dark-0: var(--sand-dark-0);
   --color-sand-dark-200: var(--sand-dark-200);
+  --color-sand-dark-300: var(--sand-dark-300);
   --color-sand-dark-500: var(--sand-dark-500);
   --color-sand-dark-600: var(--sand-dark-600);
   --color-sand-dark-800: var(--sand-dark-800);
@@ -30,6 +32,7 @@
   --color-ocean-850: var(--ocean-850);
   --color-background-primary: var(--background-primary);
   --color-background-inverse: var(--background-inverse);
+  --color-background-active: var(--background-active);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-secondary-inverse: var(--text-secondary-inverse);
@@ -108,7 +111,7 @@
   .type-p-strong {
     font-family: var(--font-family-inter);
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 126%;
     letter-spacing: 0;
   }
@@ -132,7 +135,7 @@
   .type-s-button-strong {
     font-family: var(--font-family-inter);
     font-size: 14.22px;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 125%;
     letter-spacing: 0;
   }
@@ -188,6 +191,7 @@
 
 :root {
   --sand-light-200: #dee0e2;
+  --sand-light-300: #d3d6d9;
   --sand-light-500: #bdc2c7;
   --sand-light-600: #a7adb4;
   --sand-light-800: #9199a1;
@@ -195,6 +199,7 @@
   --sand-light-950: #5e666e;
   --sand-light-0: #4b5258;
   --sand-dark-200: #1d1f21;
+  --sand-dark-300: #26292c;
   --sand-dark-500: #383d42;
   --sand-dark-600: #4b5258;
   --sand-dark-800: #5e666e;
@@ -208,6 +213,7 @@
   --ocean-850: #2881e2;
   --background-primary: var(--sand-light-200);
   --background-inverse: var(--sand-dark-200);
+  --background-active: var(--sand-light-300);
   --text-primary: var(--sand-dark-200);
   --text-secondary: var(--sand-light-800);
   --text-secondary-inverse: var(--sand-light-850);
@@ -256,6 +262,7 @@
 .dark {
   --background-primary: var(--sand-dark-200);
   --background-inverse: var(--sand-light-200);
+  --background-active: var(--sand-dark-300);
   --text-primary: var(--sand-light-200);
   --text-secondary: var(--sand-dark-800);
   --text-secondary-inverse: var(--sand-dark-850);
@@ -303,6 +310,7 @@
 [data-theme="blue"] {
   --background-primary: var(--ocean-500);
   --background-inverse: var(--sand-light-200);
+  --background-active: var(--ocean-600);
   --text-primary: var(--sand-light-200);
   --text-secondary: var(--ocean-850);
   --text-secondary-inverse: var(--ocean-500);

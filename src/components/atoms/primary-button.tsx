@@ -5,21 +5,31 @@ import { useState } from "react";
 import { AnimatedText } from "@/components/atoms/animated-text";
 import { cn } from "@/lib/utils";
 
-interface NavigationButtonProps {
+type PrimaryButtonTone = "dark" | "light";
+
+interface PrimaryButtonProps {
   children: string;
   className?: string;
+  tone?: PrimaryButtonTone;
 }
 
-export function NavigationButton({
+const toneClassNames: Record<PrimaryButtonTone, string> = {
+  dark: "border-border-secondary bg-background-inverse text-text-inverse",
+  light: "border-border-primary bg-background-primary text-text-primary",
+};
+
+export function PrimaryButton({
   children,
   className,
-}: NavigationButtonProps) {
+  tone = "dark",
+}: PrimaryButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <button
       className={cn(
-        "type-s-button inline-flex cursor-pointer items-center justify-center bg-background-primary p-4 text-text-primary transition-colors active:bg-background-active",
+        "type-p-strong w-48 inline-flex cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase ",
+        toneClassNames[tone],
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
