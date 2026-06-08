@@ -1,5 +1,5 @@
 import { ChallengeCards } from "@/components/molecules/challenge-cards";
-import { ChallengeIntro } from "@/components/molecules/challenge-intro";
+import { SectionIntro } from "@/components/molecules/section-intro";
 import { cn } from "@/lib/utils";
 
 interface WorkflowChallengeProps {
@@ -14,7 +14,11 @@ export function WorkflowChallenge({ className }: WorkflowChallengeProps) {
         className,
       )}
     >
-      <ChallengeIntro />
+      <SectionIntro
+        eyebrow="The challenge"
+        subtitle="Aluminium helps teams turn scattered workflows, unclear ownership, and daily operational noise into clean, structured systems that are easier to run and scale."
+        title="Most Businesses Don't Fail From Lack Of Effort They Fail From Messy Operations"
+      />
       <ChallengeCards />
     </section>
   );

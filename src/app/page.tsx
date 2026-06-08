@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/organisms/navigation";
 import { OperationsHero } from "@/components/organisms/operations-hero";
 import { ProcessShowcase } from "@/components/organisms/process-showcase";
+import { UseCases } from "@/components/organisms/use-cases";
 import { WorkflowChallenge } from "@/components/organisms/workflow-challenge";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <OperationsHero />
         <WorkflowChallenge />
         <ProcessShowcase />
+        <UseCases />
       </div>
     </main>
   );

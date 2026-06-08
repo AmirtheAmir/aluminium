@@ -9,9 +9,9 @@ import {
 } from "react";
 
 import { ProcessFour, ProcessOne, ProcessThree, ProcessTwo } from "@/assets";
-import { ProcessIntro } from "@/components/molecules/process-intro";
 import { ProcessStepList } from "@/components/molecules/process-step-list";
 import { ProcessVisual } from "@/components/molecules/process-visual";
+import { SectionIntro } from "@/components/molecules/section-intro";
 import { cn } from "@/lib/utils";
 
 interface ProcessShowcaseProps {
@@ -110,7 +110,11 @@ export function ProcessShowcase({ className }: ProcessShowcaseProps) {
       ref={sectionRef}
     >
       <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-24">
-        <ProcessIntro />
+        <SectionIntro
+          eyebrow="The process"
+          subtitle="Daily work becomes easier to structure, ownership becomes clearer, and processes become simpler to follow, manage, and scale."
+          title="Built To Turn Messy Operations Into Clear Systems"
+        />
 
         <div className="flex w-full flex-col gap-3 md:flex-row">
           <ProcessVisual
