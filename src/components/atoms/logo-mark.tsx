@@ -1,4 +1,4 @@
-import { Logo } from "@/assets";
+import { Logo } from "@/assets/icons";
 import { ThemeToggle } from "@/components/atoms/theme-toggle";
 import { cn } from "@/lib/utils";
 
@@ -14,9 +14,9 @@ export function LogoMark({ className }: LogoMarkProps) {
         className,
       )}
     >
-      <div className="flex items-end gap-1">
+      <div className="flex items-end gap-2">
         <Logo aria-hidden="true" />
-        <ThemeToggle size={12} />
+        <ThemeToggle size={14} />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export function WorkflowChallenge({ className }: WorkflowChallengeProps) {
   return (
     <section
       className={cn(
-        "flex w-full flex-col gap-12 border-b border-border-primary bg-background-primary py-24",
+        "flex w-full flex-col gap-12 border-b border-border-primary bg-background-primary py-36",
         className,
       )}
     >

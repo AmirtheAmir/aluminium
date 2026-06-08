@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Host_Grotesk, Inter } from "next/font/google";
 
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -29,6 +31,7 @@ export default function RootLayout({
       className={`${inter.variable} ${hostGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <SmoothScroll />
         {children}
       </body>
     </html>

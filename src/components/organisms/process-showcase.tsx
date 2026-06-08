@@ -8,7 +8,7 @@ import {
   type SVGProps,
 } from "react";
 
-import { ProcessFour, ProcessOne, ProcessThree, ProcessTwo } from "@/assets";
+import { ProcessFour, ProcessOne, ProcessThree, ProcessTwo } from "@/assets/icons";
 import { ProcessStepList } from "@/components/molecules/process-step-list";
 import { ProcessVisual } from "@/components/molecules/process-visual";
 import { SectionIntro } from "@/components/molecules/section-intro";
@@ -109,7 +109,7 @@ export function ProcessShowcase({ className }: ProcessShowcaseProps) {
       )}
       ref={sectionRef}
     >
-      <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-24">
+      <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-36">
         <SectionIntro
           eyebrow="The process"
           subtitle="Daily work becomes easier to structure, ownership becomes clearer, and processes become simpler to follow, manage, and scale."

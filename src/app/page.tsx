@@ -1,6 +1,8 @@
 import { Navigation } from "@/components/organisms/navigation";
 import { OperationsHero } from "@/components/organisms/operations-hero";
+import { PricingPlans } from "@/components/organisms/pricing-plans";
 import { ProcessShowcase } from "@/components/organisms/process-showcase";
+import { StructuredFlow } from "@/components/organisms/structured-flow";
 import { UseCases } from "@/components/organisms/use-cases";
 import { WorkflowChallenge } from "@/components/organisms/workflow-challenge";
 
@@ -13,6 +15,8 @@ export default function Home() {
         <WorkflowChallenge />
         <ProcessShowcase />
         <UseCases />
+        <StructuredFlow />
+        <PricingPlans />
       </div>
     </main>
   );
