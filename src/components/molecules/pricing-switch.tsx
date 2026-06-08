@@ -31,7 +31,7 @@ export function PricingSwitch({
         return (
           <button
             className={cn(
-              "type-s-button cursor-pointer px-4 py-3 text-center uppercase transition-colors",
+              "type-s-button-strong cursor-pointer px-4 py-3 text-center uppercase transition-colors",
               active
                 ? "bg-background-inverse text-text-inverse"
                 : "bg-background-primary text-text-primary",

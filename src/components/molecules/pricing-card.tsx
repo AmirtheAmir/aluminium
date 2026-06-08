@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import CountUp from "@/components/atoms/count-up";
 import { PrimaryButton } from "@/components/atoms/primary-button";
 import { PricingFeatureItem } from "@/components/atoms/pricing-feature-item";
 import type { BillingPeriod } from "@/components/molecules/pricing-switch";
@@ -11,7 +12,7 @@ interface PricingPlan {
   description: string;
   features: string[];
   name: string;
-  prices: Record<BillingPeriod, string>;
+  prices: Record<BillingPeriod, number>;
 }
 
 interface PricingCardProps {
@@ -55,7 +56,13 @@ export function PricingCard({ period, plan }: PricingCardProps) {
               hovered ? "text-text-inverse" : "text-text-primary",
             )}
           >
-            {plan.prices[period]}
+            $
+            <CountUp
+              duration={0.1}
+              from={0}
+              separator=","
+              to={plan.prices[period]}
+            />
           </p>
           <p
             className={cn(

@@ -21,8 +21,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     prices: {
-      monthly: "$79",
-      yearly: "$790",
+      monthly: 79,
+      yearly: 790,
     },
     description:
       "For small teams that need a clearer way to manage daily tasks, ownership, and recurring work workflows.",
@@ -37,8 +37,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Growth",
     prices: {
-      monthly: "$149",
-      yearly: "$1,510",
+      monthly: 149,
+      yearly: 1510,
     },
     description:
       "For growing teams that need stronger coordination, and more consistent operational processes across their organization.",
@@ -53,8 +53,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Scale",
     prices: {
-      monthly: "$279",
-      yearly: "$2,800",
+      monthly: 279,
+      yearly: 2800,
     },
     description:
       "For larger businesses managing complex workflows, repeated processes, and cross functional operations.",

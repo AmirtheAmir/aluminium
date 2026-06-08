@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 type SecondaryButtonTone = "default" | "inverse";
 
 interface SecondaryButtonProps {
+  children?: string;
   className?: string;
   tone?: SecondaryButtonTone;
 }
@@ -22,6 +23,7 @@ const toneClassNames: Record<SecondaryButtonTone, string> = {
 };
 
 export function SecondaryButton({
+  children = "Get in touch",
   className,
   tone = "default",
 }: SecondaryButtonProps) {
@@ -50,7 +52,7 @@ export function SecondaryButton({
       type="button"
     >
       <AnimatedText active={isHovered} center>
-        Get in touch
+        {children}
       </AnimatedText>
       <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
     </button>

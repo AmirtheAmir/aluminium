@@ -1,3 +1,5 @@
+import { FrequentlyAskedQuestions } from "@/components/organisms/frequently-asked-questions";
+import { Footer } from "@/components/organisms/footer";
 import { Navigation } from "@/components/organisms/navigation";
 import { OperationsHero } from "@/components/organisms/operations-hero";
 import { PricingPlans } from "@/components/organisms/pricing-plans";
@@ -17,6 +19,8 @@ export default function Home() {
         <UseCases />
         <StructuredFlow />
         <PricingPlans />
+        <FrequentlyAskedQuestions />
+        <Footer />
       </div>
     </main>
   );
