@@ -28,9 +28,9 @@ export function PrimaryButton({
   return (
     <button
       className={cn(
-        "type-p-strong w-48 inline-flex cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase ",
+        "type-p-strong inline-flex w-48 cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase",
         toneClassNames[tone],
-        className
+        className,
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

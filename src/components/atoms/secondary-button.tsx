@@ -7,7 +7,6 @@ import {
   ArrowRightIcon,
   type ArrowRightIconHandle,
 } from "@/components/ui/arrow-right";
-
 import { cn } from "@/lib/utils";
 
 type SecondaryButtonTone = "default" | "inverse";
@@ -44,7 +43,7 @@ export function SecondaryButton({
       className={cn(
         "type-s-button inline-flex cursor-pointer items-center justify-between border p-4 uppercase",
         toneClassNames[tone],
-        className
+        className,
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

@@ -5,8 +5,6 @@ import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-import { cn } from "@/lib/utils";
-
 export interface ContrastIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
@@ -66,7 +64,7 @@ const ContrastIcon = forwardRef<ContrastIconHandle, ContrastIconProps>(
 
     return (
       <div
-        className={cn(className)}
+        className={className}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
@@ -92,7 +90,7 @@ const ContrastIcon = forwardRef<ContrastIconHandle, ContrastIconProps>(
         </svg>
       </div>
     );
-  }
+  },
 );
 
 ContrastIcon.displayName = "ContrastIcon";

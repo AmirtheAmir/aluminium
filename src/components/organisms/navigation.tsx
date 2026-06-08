@@ -12,7 +12,7 @@ export function Navigation({ className }: NavigationProps) {
     <header
       className={cn(
         "grid w-full grid-cols-1 border border-border-primary bg-background-primary md:grid-cols-4",
-        className
+        className,
       )}
     >
       <LogoMark className="border-0 md:col-span-1 md:border-r md:border-border-primary" />

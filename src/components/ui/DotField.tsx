@@ -2,6 +2,8 @@
 
 import { memo, useEffect, useId, useRef, type HTMLAttributes } from "react";
 
+import { cn } from "@/lib/utils";
+
 const TWO_PI = Math.PI * 2;
 
 interface Dot {
@@ -43,6 +45,7 @@ const DotField = memo(function DotField({
   gradientFrom = "rgba(168, 85, 247, 0.35)",
   gradientTo = "rgba(180, 151, 207, 0.25)",
   glowColor = "#120F17",
+  className,
   ...rest
 }: DotFieldProps) {
   const id = useId();
@@ -302,24 +305,13 @@ const DotField = memo(function DotField({
   }, [dotRadius, dotSpacing]);
 
   return (
-    <div className="relative h-full w-full" {...rest}>
+    <div className={cn("relative h-full w-full", className)} {...rest}>
       <canvas
+        className="absolute inset-0 h-full w-full"
         ref={canvasRef}
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-        }}
       />
       <svg
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none",
-        }}
+        className="pointer-events-none absolute inset-0 h-full w-full"
       >
         <defs>
           <radialGradient id={glowId}>

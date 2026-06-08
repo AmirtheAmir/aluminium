@@ -24,7 +24,7 @@ interface LottiePreviewProps {
 export function LottiePreview({
   animationData,
   className,
-  speed = 0.2,
+  speed = 0.3,
 }: LottiePreviewProps) {
   const lottieRef = useRef<LottieRefCurrentProps>(null);
 

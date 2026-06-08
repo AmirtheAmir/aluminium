@@ -6,7 +6,12 @@ interface HeroCopyProps {
 
 export function HeroCopy({ className }: HeroCopyProps) {
   return (
-    <div className={cn("flex max-w-3xl flex-col items-center text-center", className)}>
+    <div
+      className={cn(
+        "flex max-w-3xl flex-col items-center text-center",
+        className,
+      )}
+    >
       <p className="type-s-button text-text-inactive-primary uppercase">
         Built for modern operations
       </p>

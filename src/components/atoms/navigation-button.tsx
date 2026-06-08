@@ -20,7 +20,7 @@ export function NavigationButton({
     <button
       className={cn(
         "type-s-button inline-flex cursor-pointer items-center justify-center bg-background-primary p-4 text-text-primary transition-colors active:bg-background-active",
-        className
+        className,
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

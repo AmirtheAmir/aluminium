@@ -19,6 +19,13 @@ export function AnimatedText({
   center = false,
   active,
 }: AnimatedTextProps) {
+  const letters = children.split("");
+  const middleIndex = (letters.length - 1) / 2;
+
+  function getDelay(index: number) {
+    return STAGGER * (center ? Math.abs(index - middleIndex) : index);
+  }
+
   return (
     <motion.span
       className={cn("relative block overflow-hidden", className)}
@@ -27,16 +34,12 @@ export function AnimatedText({
       whileHover={active === undefined ? "hovered" : undefined}
     >
       <span className="block">
-        {children.split("").map((letter, index) => {
-          const delay = center
-            ? STAGGER * Math.abs(index - (children.length - 1) / 2)
-            : STAGGER * index;
-
+        {letters.map((letter, index) => {
           return (
             <motion.span
               className="inline-block"
               key={`${letter}-${index}`}
-              transition={{ ease: "easeInOut", delay }}
+              transition={{ ease: "easeInOut", delay: getDelay(index) }}
               variants={{
                 initial: { y: 0 },
                 hovered: { y: "-100%" },
@@ -49,16 +52,12 @@ export function AnimatedText({
       </span>
 
       <span className="absolute inset-0 block">
-        {children.split("").map((letter, index) => {
-          const delay = center
-            ? STAGGER * Math.abs(index - (children.length - 1) / 2)
-            : STAGGER * index;
-
+        {letters.map((letter, index) => {
           return (
             <motion.span
               className="inline-block"
               key={`${letter}-${index}`}
-              transition={{ ease: "easeInOut", delay }}
+              transition={{ ease: "easeInOut", delay: getDelay(index) }}
               variants={{
                 initial: { y: "100%" },
                 hovered: { y: 0 },

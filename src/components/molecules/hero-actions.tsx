@@ -10,11 +10,11 @@ export function HeroActions({ className }: HeroActionsProps) {
     <div
       className={cn(
         "flex flex-col items-center justify-center gap-3 sm:flex-row",
-        className
+        className,
       )}
     >
       <PrimaryButton>Get Aluminium</PrimaryButton>
-      <PrimaryButton  tone="light">View Pricing</PrimaryButton>
+      <PrimaryButton tone="light">View Pricing</PrimaryButton>
     </div>
   );
 }

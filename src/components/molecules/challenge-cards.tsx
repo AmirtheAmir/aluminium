@@ -42,7 +42,9 @@ const challengeCards: ChallengeCardItem[] = [
 
 export function ChallengeCards({ className }: ChallengeCardsProps) {
   return (
-    <div className={cn("grid w-full grid-cols-1 gap-3 md:grid-cols-3", className)}>
+    <div
+      className={cn("grid w-full grid-cols-1 gap-3 md:grid-cols-3", className)}
+    >
       {challengeCards.map((card) => (
         <ChallengeCard
           animationData={card.animationData}

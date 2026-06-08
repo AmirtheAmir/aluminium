@@ -23,7 +23,7 @@ export function ChallengeCard({
     <article
       className={cn(
         "flex min-w-0 flex-1 flex-col gap-4 border border-border-primary bg-background-primary p-4",
-        className
+        className,
       )}
     >
       <p className="type-p-strong text-text-inactive-primary uppercase">

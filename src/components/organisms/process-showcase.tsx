@@ -110,7 +110,7 @@ export function ProcessShowcase({ className }: ProcessShowcaseProps) {
       ref={sectionRef}
     >
       <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-24">
-          <ProcessIntro />
+        <ProcessIntro />
 
         <div className="flex w-full flex-col gap-3 md:flex-row">
           <ProcessVisual

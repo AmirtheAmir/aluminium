@@ -13,7 +13,7 @@ interface ProcessStepListProps {
 
 export function ProcessStepList({ activeIndex, steps }: ProcessStepListProps) {
   return (
-    <div className="flex w-full gap-2 flex-col md:w-1/2">
+    <div className="flex w-full flex-col gap-2 md:w-1/2">
       {steps.map((step, index) => (
         <ProcessStepItem
           active={index === activeIndex}

@@ -11,7 +11,7 @@ export function WorkflowChallenge({ className }: WorkflowChallengeProps) {
     <section
       className={cn(
         "flex w-full flex-col gap-12 border-b border-border-primary bg-background-primary py-24",
-        className
+        className,
       )}
     >
       <ChallengeIntro />
