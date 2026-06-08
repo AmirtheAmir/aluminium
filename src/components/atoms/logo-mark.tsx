@@ -1,5 +1,5 @@
 import { Logo } from "@/assets";
-import { ContrastIcon } from "@/components/ui/contrast";
+import { ThemeToggle } from "@/components/atoms/theme-toggle";
 import { cn } from "@/lib/utils";
 
 interface LogoMarkProps {
@@ -16,9 +16,8 @@ export function LogoMark({ className }: LogoMarkProps) {
     >
       <div className="flex items-end gap-1">
         <Logo aria-hidden="true" />
-        <ContrastIcon aria-hidden="true" size={12} />
+        <ThemeToggle size={12} />
       </div>
     </div>
   );
 }
-

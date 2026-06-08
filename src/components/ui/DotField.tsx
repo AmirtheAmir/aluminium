@@ -5,6 +5,22 @@ import { memo, useEffect, useId, useRef, type HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 const TWO_PI = Math.PI * 2;
+const CSS_VARIABLE_PATTERN = /^var\((--[^,\s)]+)(?:,\s*([^)]+))?\)$/;
+const FALLBACK_COLORS: Record<string, string> = {
+  "--dot-field-gradient-from": "#bdc2c7",
+  "--dot-field-gradient-to": "#a7adb4",
+  "--dot-field-glow-color": "#dee0e2",
+  "--sand-light-500": "#bdc2c7",
+  "--sand-light-600": "#a7adb4",
+  "--sand-light-200": "#dee0e2",
+  "--sand-dark-500": "#383d42",
+  "--sand-dark-600": "#4b5258",
+  "--sand-dark-200": "#1d1f21",
+  "--ocean-500": "#0f3b6b",
+  "--ocean-600": "#145090",
+  "--ocean-700": "#1863b4",
+  "--background-primary": "#dee0e2",
+};
 
 interface Dot {
   ax: number;
@@ -106,6 +122,33 @@ const DotField = memo(function DotField({
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let resizeTimer: ReturnType<typeof setTimeout>;
 
+    function isValidCssColor(color: string) {
+      return CSS.supports("color", color);
+    }
+
+    function resolveColor(color: string, fallbackColor: string) {
+      let resolvedColor = color.trim();
+
+      for (let depth = 0; depth < 5; depth++) {
+        const match = CSS_VARIABLE_PATTERN.exec(resolvedColor);
+
+        if (!match) {
+          return isValidCssColor(resolvedColor) ? resolvedColor : fallbackColor;
+        }
+
+        resolvedColor =
+          getComputedStyle(canvasElement).getPropertyValue(match[1]).trim() ||
+          getComputedStyle(document.documentElement)
+            .getPropertyValue(match[1])
+            .trim() ||
+          FALLBACK_COLORS[match[1]] ||
+          match[2]?.trim() ||
+          fallbackColor;
+      }
+
+      return isValidCssColor(resolvedColor) ? resolvedColor : fallbackColor;
+    }
+
     function buildDots(w: number, h: number) {
       const p = propsRef.current;
       const step = p.dotRadius + p.dotSpacing;
@@ -205,8 +248,8 @@ const DotField = memo(function DotField({
       ctx.clearRect(0, 0, w, h);
 
       const gradient = ctx.createLinearGradient(0, 0, w, h);
-      gradient.addColorStop(0, p.gradientFrom);
-      gradient.addColorStop(1, p.gradientTo);
+      gradient.addColorStop(0, resolveColor(p.gradientFrom, "#bdc2c7"));
+      gradient.addColorStop(1, resolveColor(p.gradientTo, "#a7adb4"));
       ctx.fillStyle = gradient;
 
       const cursorRadiusSq = p.cursorRadius * p.cursorRadius;

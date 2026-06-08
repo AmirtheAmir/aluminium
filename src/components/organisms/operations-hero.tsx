@@ -17,18 +17,18 @@ export function OperationsHero({ className }: OperationsHeroProps) {
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-full">
         <DotField
-          dotRadius={1.5}
+          dotRadius={2}
           dotSpacing={16}
           bulgeStrength={56}
           glowRadius={112}
           sparkle={false}
-          waveAmplitude={1}
+          waveAmplitude={2}
           cursorRadius={500}
           cursorForce={0.1}
           bulgeOnly
-          gradientFrom="#a7adb4"
-          gradientTo="#9199a1"
-          glowColor="#d3d6d9"
+          gradientFrom="var(--dot-field-gradient-from)"
+          gradientTo="var(--dot-field-gradient-to)"
+          glowColor="var(--dot-field-glow-color)"
         />
       </div>
 
