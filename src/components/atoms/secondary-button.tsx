@@ -20,6 +20,7 @@ interface SecondaryButtonProps {
   children?: string;
   className?: string;
   icon?: SecondaryButtonIcon;
+  onClick?: () => void;
   tone?: SecondaryButtonTone;
 }
 
@@ -32,6 +33,7 @@ export function SecondaryButton({
   children = "Get in touch",
   className,
   icon = "right",
+  onClick,
   tone = "default",
 }: SecondaryButtonProps) {
   const arrowIconRef = useRef<ArrowRightIconHandle | ArrowUpIconHandle>(null);
@@ -54,6 +56,7 @@ export function SecondaryButton({
         toneClassNames[tone],
         className,
       )}
+      onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       type="button"

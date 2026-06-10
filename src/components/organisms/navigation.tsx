@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
 
 interface NavigationProps {
   className?: string;
+  onContactClick?: () => void;
 }
 
-export function Navigation({ className }: NavigationProps) {
+export function Navigation({ className, onContactClick }: NavigationProps) {
   return (
     <header
       className={cn(
@@ -17,7 +18,10 @@ export function Navigation({ className }: NavigationProps) {
     >
       <LogoMark className="border-0 md:col-span-1 md:border-r md:border-border-primary" />
       <NavigationLinks className="md:col-span-2" />
-      <SecondaryButton className="border-0 md:col-span-1 md:border-l md:border-border-primary" />
+      <SecondaryButton
+        className="border-0 md:col-span-1 md:border-l md:border-border-primary"
+        onClick={onContactClick}
+      />
     </header>
   );
 }

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface FooterProps {
   className?: string;
+  onContactClick?: () => void;
 }
 
 const footerNavigationItems = ["Process", "Use Cases", "Pricing", "FAQS"];
@@ -16,7 +17,7 @@ const socialLinks = [
   { href: "#", label: "Official Site" },
 ];
 
-export function Footer({ className }: FooterProps) {
+export function Footer({ className, onContactClick }: FooterProps) {
   return (
     <footer className={cn("w-full bg-background-primary pb-36 pt-16", className)}>
       <div className="grid w-full grid-cols-1 border border-border-primary md:grid-cols-4">
@@ -32,7 +33,10 @@ export function Footer({ className }: FooterProps) {
             </p>
           </div>
 
-          <SecondaryButton className="w-full border-0 border-t border-border-primary" />
+          <SecondaryButton
+            className="w-full border-0 border-t border-border-primary"
+            onClick={onContactClick}
+          />
         </div>
 
         <nav

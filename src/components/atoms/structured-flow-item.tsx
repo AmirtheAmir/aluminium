@@ -12,8 +12,8 @@ export function StructuredFlowItem({
   subtitle,
 }: StructuredFlowItemProps) {
   return (
-    <div className="flex h-[344px] gap-3">
-      <div className="relative flex h-[344px] w-3 shrink-0 justify-center">
+    <div className="flex gap-3">
+      <div className="relative flex h-100 w-3 shrink-0 justify-center">
         <span
           className={cn(
             "h-full w-0.5 transition-colors",
