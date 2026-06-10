@@ -19,10 +19,11 @@ interface PricingPlansProps {
 
 const pricingPlans: PricingPlan[] = [
   {
+    id: "starter",
     name: "Starter",
     prices: {
       monthly: 79,
-      yearly: 790,
+      yearly: 750,
     },
     description:
       "For small teams that need a clearer way to manage daily tasks, ownership, and recurring work workflows.",
@@ -35,6 +36,7 @@ const pricingPlans: PricingPlan[] = [
     ],
   },
   {
+    id: "growth",
     name: "Growth",
     prices: {
       monthly: 149,
@@ -51,6 +53,7 @@ const pricingPlans: PricingPlan[] = [
     ],
   },
   {
+    id: "scale",
     name: "Scale",
     prices: {
       monthly: 279,

@@ -8,9 +8,12 @@ import { PricingFeatureItem } from "@/components/atoms/pricing-feature-item";
 import type { BillingPeriod } from "@/components/molecules/pricing-switch";
 import { cn } from "@/lib/utils";
 
+type PricingPlanId = "starter" | "growth" | "scale";
+
 interface PricingPlan {
   description: string;
   features: string[];
+  id: PricingPlanId;
   name: string;
   prices: Record<BillingPeriod, number>;
 }
@@ -27,6 +30,39 @@ const periodLabels: Record<BillingPeriod, string> = {
 
 export function PricingCard({ period, plan }: PricingCardProps) {
   const [hovered, setHovered] = useState(false);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  async function handleCheckout() {
+    if (isCheckingOut) return;
+
+    setIsCheckingOut(true);
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          period,
+          plan: plan.id,
+        }),
+      });
+      const data = (await response.json()) as {
+        error?: string;
+        url?: string;
+      };
+
+      if (!response.ok || !data.url) {
+        throw new Error(data.error ?? "Unable to start checkout");
+      }
+
+      window.location.href = data.url;
+    } catch (error) {
+      console.error("Checkout redirect error:", error);
+      setIsCheckingOut(false);
+    }
+  }
 
   return (
     <article
@@ -121,6 +157,8 @@ export function PricingCard({ period, plan }: PricingCardProps) {
 
       <PrimaryButton
         className="mt-auto w-full"
+        disabled={isCheckingOut}
+        onClick={handleCheckout}
         tone={hovered ? "light" : "dark"}
       >
         Get Started

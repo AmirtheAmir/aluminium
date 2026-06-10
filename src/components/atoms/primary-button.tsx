@@ -10,6 +10,8 @@ type PrimaryButtonTone = "dark" | "light";
 interface PrimaryButtonProps {
   children: string;
   className?: string;
+  disabled?: boolean;
+  onClick?: () => void;
   tone?: PrimaryButtonTone;
 }
 
@@ -21,6 +23,8 @@ const toneClassNames: Record<PrimaryButtonTone, string> = {
 export function PrimaryButton({
   children,
   className,
+  disabled,
+  onClick,
   tone = "dark",
 }: PrimaryButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -32,6 +36,8 @@ export function PrimaryButton({
         toneClassNames[tone],
         className,
       )}
+      disabled={disabled}
+      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       type="button"

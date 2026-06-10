@@ -46,6 +46,7 @@ export function Footer({ className }: FooterProps) {
                 index !== footerNavigationItems.length - 1 &&
                   "border-b border-border-primary",
               )}
+              icon="up"
               key={item}
             >
               {item}

@@ -7,13 +7,19 @@ import {
   ArrowRightIcon,
   type ArrowRightIconHandle,
 } from "@/components/ui/arrow-right";
+import {
+  ArrowUpIcon,
+  type ArrowUpIconHandle,
+} from "@/components/ui/arrow-up";
 import { cn } from "@/lib/utils";
 
 type SecondaryButtonTone = "default" | "inverse";
+type SecondaryButtonIcon = "right" | "up";
 
 interface SecondaryButtonProps {
   children?: string;
   className?: string;
+  icon?: SecondaryButtonIcon;
   tone?: SecondaryButtonTone;
 }
 
@@ -25,9 +31,10 @@ const toneClassNames: Record<SecondaryButtonTone, string> = {
 export function SecondaryButton({
   children = "Get in touch",
   className,
+  icon = "right",
   tone = "default",
 }: SecondaryButtonProps) {
-  const arrowIconRef = useRef<ArrowRightIconHandle>(null);
+  const arrowIconRef = useRef<ArrowRightIconHandle | ArrowUpIconHandle>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   function handleMouseEnter() {
@@ -54,7 +61,11 @@ export function SecondaryButton({
       <AnimatedText active={isHovered} center>
         {children}
       </AnimatedText>
-      <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
+      {icon === "up" ? (
+        <ArrowUpIcon aria-hidden="true" ref={arrowIconRef} size={18} />
+      ) : (
+        <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
+      )}
     </button>
   );
 }
