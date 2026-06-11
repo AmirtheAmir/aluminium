@@ -17,10 +17,10 @@ export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <main className="flex flex-1 flex-col px-12 pt-6">
+    <main className="flex flex-1 flex-col px-12 pt-6" id="top">
       <div className="mx-auto flex w-full max-w-336 flex-1 flex-col">
         <Navigation onContactClick={() => setContactOpen(true)} />
-        <OperationsHero />
+        <OperationsHero onContactClick={() => setContactOpen(true)} />
         <WorkflowChallenge />
         <ProcessShowcase />
         <UseCases />

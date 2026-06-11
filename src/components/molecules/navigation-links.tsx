@@ -1,7 +1,12 @@
 import { NavigationButton } from "@/components/atoms/navigation-button";
 import { cn } from "@/lib/utils";
 
-const navigationItems = ["Operations", "Use Cases", "Pricing", "FAQS"];
+const navigationItems = [
+  { href: "#operations", label: "Operations" },
+  { href: "#use-cases", label: "Use Cases" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#faqs", label: "FAQS" },
+];
 
 interface NavigationLinksProps {
   className?: string;
@@ -14,7 +19,9 @@ export function NavigationLinks({ className }: NavigationLinksProps) {
       className={cn("flex w-full justify-center", className)}
     >
       {navigationItems.map((item) => (
-        <NavigationButton key={item}>{item}</NavigationButton>
+        <NavigationButton href={item.href} key={item.label}>
+          {item.label}
+        </NavigationButton>
       ))}
     </nav>
   );

@@ -11,6 +11,7 @@ interface PrimaryButtonProps {
   children: string;
   className?: string;
   disabled?: boolean;
+  href?: string;
   onClick?: () => void;
   tone?: PrimaryButtonTone;
 }
@@ -24,27 +25,45 @@ export function PrimaryButton({
   children,
   className,
   disabled,
+  href,
   onClick,
   tone = "dark",
 }: PrimaryButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const content = (
+    <AnimatedText active={isHovered} center>
+      {children}
+    </AnimatedText>
+  );
+  const buttonClassName = cn(
+    "type-p-strong inline-flex w-48 cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase",
+    toneClassNames[tone],
+    className,
+  );
+
+  if (href) {
+    return (
+      <a
+        className={buttonClassName}
+        href={href}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {content}
+      </a>
+    );
+  }
 
   return (
     <button
-      className={cn(
-        "type-p-strong inline-flex w-48 cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase",
-        toneClassNames[tone],
-        className,
-      )}
+      className={buttonClassName}
       disabled={disabled}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       type="button"
     >
-      <AnimatedText active={isHovered} center>
-        {children}
-      </AnimatedText>
+      {content}
     </button>
   );
 }

@@ -51,6 +51,7 @@ export function FrequentlyAskedQuestions({
         "flex w-full flex-col gap-12  bg-background-primary py-36",
         className,
       )}
+      id="faqs"
     >
       <SectionIntro
         eyebrow="FAQS"

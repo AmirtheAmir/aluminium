@@ -5,15 +5,20 @@ import { cn } from "@/lib/utils";
 
 interface OperationsHeroProps {
   className?: string;
+  onContactClick?: () => void;
 }
 
-export function OperationsHero({ className }: OperationsHeroProps) {
+export function OperationsHero({
+  className,
+  onContactClick,
+}: OperationsHeroProps) {
   return (
     <section
       className={cn(
         "relative flex h-207 w-full flex-col items-center justify-center overflow-hidden border-x border-b border-border-primary bg-background-primary px-4 pb-12",
         className,
       )}
+      id="operations"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-full">
         <DotField
@@ -34,7 +39,7 @@ export function OperationsHero({ className }: OperationsHeroProps) {
 
       <div className="relative z-10 flex flex-col items-center gap-12">
         <HeroCopy />
-        <HeroActions />
+        <HeroActions onContactClick={onContactClick} />
       </div>
     </section>
   );

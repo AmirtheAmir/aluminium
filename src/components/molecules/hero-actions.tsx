@@ -3,9 +3,10 @@ import { cn } from "@/lib/utils";
 
 interface HeroActionsProps {
   className?: string;
+  onContactClick?: () => void;
 }
 
-export function HeroActions({ className }: HeroActionsProps) {
+export function HeroActions({ className, onContactClick }: HeroActionsProps) {
   return (
     <div
       className={cn(
@@ -13,8 +14,10 @@ export function HeroActions({ className }: HeroActionsProps) {
         className,
       )}
     >
-      <PrimaryButton>Get Aluminium</PrimaryButton>
-      <PrimaryButton tone="light">View Pricing</PrimaryButton>
+      <PrimaryButton onClick={onContactClick}>Get Aluminium</PrimaryButton>
+      <PrimaryButton href="#pricing" tone="light">
+        View Pricing
+      </PrimaryButton>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import type { MouseEventHandler } from "react";
 
 import {
   ArrowUpRightIcon,
@@ -12,12 +13,14 @@ interface FooterSocialLinkProps {
   children: string;
   className?: string;
   href: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export function FooterSocialLink({
   children,
   className,
   href,
+  onClick,
 }: FooterSocialLinkProps) {
   const arrowIconRef = useRef<ArrowUpRightIconHandle>(null);
 
@@ -36,6 +39,7 @@ export function FooterSocialLink({
         className,
       )}
       href={href}
+      onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

@@ -15,7 +15,13 @@ export function LogoMark({ className }: LogoMarkProps) {
       )}
     >
       <div className="flex items-end gap-2">
-        <Logo aria-hidden="true" />
+        <a
+          aria-label="Go to top"
+          className="inline-flex cursor-pointer items-center justify-center"
+          href="#top"
+        >
+          <Logo aria-hidden="true" />
+        </a>
         <ThemeToggle size={14} />
       </div>
     </div>
