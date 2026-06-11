@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Host_Grotesk, Inter } from "next/font/google";
-
+import { Analytics } from '@vercel/analytics/next';
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
 import "./globals.css";
@@ -33,6 +33,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SmoothScroll />
         {children}
+        <Analytics />
       </body>
     </html>
   );
