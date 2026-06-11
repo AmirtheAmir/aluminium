@@ -141,7 +141,7 @@ export function ContactRequestForm({ onSubmit }: ContactRequestFormProps) {
         </div>
 
         <ContactInput
-          className="h-[168px]"
+          className="h-42"
           multiline
           onChange={(value) => updateValue("message", value)}
           placeholder="Short Message"

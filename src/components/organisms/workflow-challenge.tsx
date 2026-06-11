@@ -13,6 +13,7 @@ export function WorkflowChallenge({ className }: WorkflowChallengeProps) {
         "flex w-full flex-col gap-12 border-b border-border-primary bg-background-primary py-36",
         className,
       )}
+      id="challenges"
     >
       <SectionIntro
         eyebrow="The challenge"

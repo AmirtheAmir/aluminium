@@ -1,3 +1,5 @@
+"use client";
+
 import { Logo } from "@/assets/icons";
 import { FooterSocialLink } from "@/components/atoms/footer-social-link";
 import { SecondaryButton } from "@/components/atoms/secondary-button";
@@ -8,13 +10,18 @@ interface FooterProps {
   onContactClick?: () => void;
 }
 
-const footerNavigationItems = ["Process", "Use Cases", "Pricing", "FAQS"];
+const footerNavigationItems = [
+  { href: "#challenges", label: "CHALLENGES" },
+  { href: "#process", label: "PROCESS" },
+  { href: "#use-cases", label: "USE CASES" },
+  { href: "#pricing", label: "PRICING" },
+];
 
 const socialLinks = [
   { href: "#", label: "Instagram" },
   { href: "#", label: "LinkedIn" },
   { href: "#", label: "Facebook" },
-  { href: "#", label: "Official Site" },
+  { href: "#", label: "Twitter (X)" },
 ];
 
 export function Footer({ className, onContactClick }: FooterProps) {
@@ -50,10 +57,11 @@ export function Footer({ className, onContactClick }: FooterProps) {
                 index !== footerNavigationItems.length - 1 &&
                   "border-b border-border-primary",
               )}
+              href={item.href}
               icon="up"
-              key={item}
+              key={item.label}
             >
-              {item}
+              {item.label}
             </SecondaryButton>
           ))}
         </nav>

@@ -34,21 +34,29 @@ export function ContactRequestModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleClose, open]);
 
+  useEffect(() => {
+    if (!open || !submitted) return;
+
+    const timeoutId = window.setTimeout(handleClose, 3000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [handleClose, open, submitted]);
+
   if (!open) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-background-tinted p-6 backdrop-blur-[16px]"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-background-tinted p-6 backdrop-blur-lg"
       onClick={handleClose}
     >
       <section
         aria-modal="true"
-        className="grid min-h-[416px] w-full max-w-5xl grid-cols-1 gap-4 border border-border-secondary bg-background-primary p-4 md:w-8/12 md:grid-cols-2"
+        className="grid min-h-128 w-full max-w-5xl grid-cols-1 gap-4 border border-border-secondary bg-background-primary p-4 md:w-8/12 md:grid-cols-2"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
       >
         {submitted ? (
-          <div className="col-span-full flex min-h-[384px] flex-col items-center justify-center text-center">
+          <div className="col-span-full flex min-h-128 flex-col items-center justify-center text-center">
             <h2 className="type-h2 text-text-primary uppercase">
               Successfully Sent
             </h2>
@@ -61,7 +69,7 @@ export function ContactRequestModal({
           </div>
         ) : (
           <>
-            <div className="flex min-h-[384px] flex-col justify-between">
+            <div className="flex min-h-128 flex-col justify-between">
               <div className="flex flex-col gap-8">
                 <h2 className="type-h2 text-text-primary uppercase">
                   Talk To Aluminium

@@ -107,6 +107,7 @@ export function ProcessShowcase({ className }: ProcessShowcaseProps) {
         "relative h-[400vh] border-b border-border-primary",
         className,
       )}
+      id="process"
       ref={sectionRef}
     >
       <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-36">

@@ -13,6 +13,7 @@ export function UseCases({ className }: UseCasesProps) {
         "flex w-full flex-col gap-12 border-b border-border-primary bg-background-primary py-36",
         className,
       )}
+      id="use-cases"
     >
       <SectionIntro
         eyebrow="Use cases"

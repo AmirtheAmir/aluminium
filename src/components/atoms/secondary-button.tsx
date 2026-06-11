@@ -19,6 +19,7 @@ type SecondaryButtonIcon = "right" | "up";
 interface SecondaryButtonProps {
   children?: string;
   className?: string;
+  href?: string;
   icon?: SecondaryButtonIcon;
   onClick?: () => void;
   tone?: SecondaryButtonTone;
@@ -32,6 +33,7 @@ const toneClassNames: Record<SecondaryButtonTone, string> = {
 export function SecondaryButton({
   children = "Get in touch",
   className,
+  href,
   icon = "right",
   onClick,
   tone = "default",
@@ -49,18 +51,8 @@ export function SecondaryButton({
     arrowIconRef.current?.stopAnimation();
   }
 
-  return (
-    <button
-      className={cn(
-        "type-s-button inline-flex cursor-pointer items-center justify-between border p-4 uppercase",
-        toneClassNames[tone],
-        className,
-      )}
-      onClick={onClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      type="button"
-    >
+  const content = (
+    <>
       <AnimatedText active={isHovered} center>
         {children}
       </AnimatedText>
@@ -69,6 +61,37 @@ export function SecondaryButton({
       ) : (
         <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
       )}
+    </>
+  );
+
+  const buttonClassName = cn(
+    "type-s-button inline-flex cursor-pointer items-center justify-between border p-4 uppercase",
+    toneClassNames[tone],
+    className,
+  );
+
+  if (href) {
+    return (
+      <a
+        className={buttonClassName}
+        href={href}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <button
+      className={buttonClassName}
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      type="button"
+    >
+      {content}
     </button>
   );
 }

@@ -80,6 +80,7 @@ export function PricingPlans({ className }: PricingPlansProps) {
         "flex w-full flex-col border-b border-border-primary bg-background-primary py-36",
         className,
       )}
+      id="pricing"
     >
       <SectionIntro
         eyebrow="Pricing"

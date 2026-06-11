@@ -80,7 +80,7 @@ export function ContactCalendar({
         <div className="grid grid-cols-3 items-center text-text-inverse">
           <button
             aria-label="Previous month"
-            className="flex size-7 cursor-pointer items-center justify-center"
+            className="flex mr-auto cursor-pointer items-center justify-center"
             onClick={() => changeMonth(-1)}
             type="button"
           >
@@ -91,7 +91,7 @@ export function ContactCalendar({
           </p>
           <button
             aria-label="Next month"
-            className="ml-auto flex size-7 cursor-pointer items-center justify-center"
+            className="ml-auto flex cursor-pointer items-center justify-center"
             onClick={() => changeMonth(1)}
             type="button"
           >
@@ -99,7 +99,7 @@ export function ContactCalendar({
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-y-2">
+        <div className="grid grid-cols-7 gap-y-1">
           {weekDays.map((day) => (
             <span
               className="type-xs-button flex size-7 items-center justify-center text-text-inactive-inverse-primary"
@@ -139,26 +139,28 @@ export function ContactCalendar({
         </div>
       </div>
 
-      <div className="scrollbar-none col-span-1 flex max-h-64 flex-col gap-1 overflow-y-auto border-l border-border-tertiary pl-1">
-        {timeSlots.map((time) => {
-          const selected = selectedTime === time;
+      <div className="relative col-span-1 self-stretch overflow-hidden border-l border-border-tertiary pl-1">
+        <div className="scrollbar-none absolute inset-y-0 left-1 right-0 flex flex-col gap-1 overflow-y-auto">
+          {timeSlots.map((time) => {
+            const selected = selectedTime === time;
 
-          return (
-            <button
-              className={cn(
-                "type-xs-button flex  cursor-pointer items-center justify-center p-3 transition-colors",
-                selected
-                  ? "bg-background-primary text-text-primary"
-                  : "bg-background-inverse-secondary text-text-inactive-inverse-primary",
-              )}
-              key={time}
-              onClick={() => onTimeChange(time)}
-              type="button"
-            >
-              {time}
-            </button>
-          );
-        })}
+            return (
+              <button
+                className={cn(
+                  "type-xs-button flex cursor-pointer items-center justify-center p-3 transition-colors",
+                  selected
+                    ? "bg-background-primary text-text-primary"
+                    : "bg-background-inverse-secondary text-text-inactive-inverse-primary",
+                )}
+                key={time}
+                onClick={() => onTimeChange(time)}
+                type="button"
+              >
+                {time}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
