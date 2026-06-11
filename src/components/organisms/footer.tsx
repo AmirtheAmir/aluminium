@@ -81,7 +81,7 @@ export function Footer({ className, onContactClick }: FooterProps) {
 
         <div className="flex min-h-50 items-end justify-end p-4">
           <p className="type-s-button-strong text-text-primary">
-            Created By Amir Nasseri
+            Created & Designed By Amir Nasseri
           </p>
         </div>
       </div>
