@@ -99,7 +99,7 @@ export function BookingCalendar({
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-y-1">
+        <div className="grid grid-cols-7 gap-1">
           {weekDays.map((day) => (
             <span
               className="type-xs-button flex size-7 items-center justify-center text-text-inactive-inverse-primary"

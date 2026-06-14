@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ContactForm } from "@/components/molecules/contact-form";
+import { XIcon } from "@/components/ui/x";
 
 interface ContactModalProps {
   onClose: () => void;
@@ -48,7 +49,7 @@ export function ContactModal({
       {open && (
         <motion.div
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-background-tinted p-6 backdrop-blur-lg"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-background-tinted p-6 backdrop-blur-sm"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           onClick={handleClose}
@@ -57,7 +58,7 @@ export function ContactModal({
           <motion.section
             animate={{ opacity: 1, scale: 1, y: 0 }}
             aria-modal="true"
-            className="grid min-h-128 w-full max-w-5xl grid-cols-1 gap-4 border border-border-secondary bg-background-primary p-4 md:w-8/12 md:grid-cols-2"
+            className="grid min-h-162 w-166 grid-cols-1 gap-4 border border-border-secondary bg-background-primary p-4 md:grid-cols-2"
             exit={{ opacity: 0, scale: 0.98, y: 12 }}
             initial={{ opacity: 0, scale: 0.98, y: 12 }}
             onClick={(event) => event.stopPropagation()}
@@ -65,7 +66,7 @@ export function ContactModal({
             transition={{ duration: 0.28, ease: "easeOut" }}
           >
             {submitted ? (
-              <div className="col-span-full flex min-h-128 flex-col items-center justify-center text-center">
+              <div className="col-span-full flex h-full flex-col items-center justify-center text-center">
                 <h2 className="type-h2 text-text-primary uppercase">
                   Successfully Sent
                 </h2>
@@ -78,7 +79,7 @@ export function ContactModal({
               </div>
             ) : (
               <>
-                <div className="flex min-h-128 flex-col justify-between">
+                <div className="flex min-h-0 flex-col justify-between">
                   <div className="flex flex-col gap-8">
                     <h2 className="type-h2 text-text-primary uppercase">
                       Talk To Aluminium
@@ -95,8 +96,19 @@ export function ContactModal({
                   </p>
                 </div>
 
-                <div className="min-w-0">
-                  <ContactForm onSubmit={() => setSubmitted(true)} />
+                <div className="flex  min-w-0 flex-col gap-1">
+                  <button
+                    aria-label="Close contact modal"
+                    className="ml-auto flex cursor-pointer items-center justify-center text-text-primary"
+                    onClick={handleClose}
+                    type="button"
+                  >
+                    <XIcon aria-hidden="true" size={18} />
+                  </button>
+                  <ContactForm
+                    className="min-h-0 flex-1"
+                    onSubmit={() => setSubmitted(true)}
+                  />
                 </div>
               </>
             )}

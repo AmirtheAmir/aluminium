@@ -17,6 +17,7 @@ export interface ContactFormValues {
 }
 
 interface ContactFormProps {
+  className?: string;
   onSubmit: () => void;
 }
 
@@ -35,13 +36,22 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
   year: "numeric",
 });
 
-export function ContactForm({ onSubmit }: ContactFormProps) {
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailErrorMessage = "Invalid Email, Please Enter A Valid Email";
+
+function isEmailValid(email: string) {
+  return emailPattern.test(email);
+}
+
+export function ContactForm({ className, onSubmit }: ContactFormProps) {
   const [values, setValues] = useState(initialValues);
   const [calendarOpen, setCalendarOpen] = useState(false);
+  const [emailError, setEmailError] = useState("");
   const complete =
     values.firstName.length > 0 &&
     values.lastName.length > 0 &&
     values.email.length > 0 &&
+    isEmailValid(values.email) &&
     values.date &&
     values.time.length > 0;
 
@@ -53,10 +63,21 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       ...currentValues,
       [key]: value,
     }));
+
+    if (key === "email") {
+      setEmailError("");
+    }
   }
 
   function handleSubmit() {
-    if (!complete) return;
+    if (!isEmailValid(values.email)) {
+      setEmailError(emailErrorMessage);
+      return;
+    }
+
+    if (!complete) {
+      return;
+    }
 
     onSubmit();
   }
@@ -78,9 +99,9 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   }
 
   return (
-    <div className="relative flex flex-col">
+    <div className={cn("relative flex h-full gap-20 flex-col justify-between", className)}>
       <div className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="flex flex-col gap-4">
           <FormInput
             onChange={(value) => updateValue("firstName", value)}
             placeholder="First Name"
@@ -94,8 +115,10 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         </div>
 
         <FormInput
+          error={emailError}
           onChange={(value) => updateValue("email", value)}
           placeholder="Email"
+          type="email"
           value={values.email}
         />
 
@@ -103,7 +126,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           <div className="flex items-center gap-1">
             <button
               className={cn(
-                "type-p-body flex basis-3/4 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
+                "type-p-body flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
                 values.date
                   ? "border-border-secondary text-text-primary"
                   : "border-border-primary text-text-secondary",
@@ -113,10 +136,10 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
             >
               {values.date ? dateFormatter.format(values.date) : "Date"}
             </button>
-            <span className="h-6 w-px bg-border-primary" />
+            <span className="w-px bg-border-primary" />
             <button
               className={cn(
-                "type-p-body flex basis-1/4 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
+                "type-p-body flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
                 values.time
                   ? "border-border-secondary text-text-primary"
                   : "border-border-primary text-text-secondary",
@@ -129,7 +152,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           </div>
 
           {calendarOpen && (
-            <div className="absolute top-[calc(100%+12px)] left-0 z-20 w-full">
+            <div className="absolute top-[calc(100%+12px)] left-0 z-20 w-108">
               <BookingCalendar
                 onDateChange={handleDateChange}
                 onTimeChange={handleTimeChange}
@@ -151,7 +174,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
 
       <ButtonPrimary
         className={cn(
-          "mt-20 w-full",
+          "w-full",
           !complete && "text-text-tertiary",
         )}
         onClick={handleSubmit}

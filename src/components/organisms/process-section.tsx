@@ -110,7 +110,7 @@ export function ProcessSection({ className }: ProcessSectionProps) {
       id="process"
       ref={sectionRef}
     >
-      <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-36">
+      <div className="sticky top-0 flex min-h-screen w-full flex-col gap-12 bg-background-primary py-26">
         <SectionIntro
           eyebrow="The process"
           subtitle="Daily work becomes easier to structure, ownership becomes clearer, and processes become simpler to follow, manage, and scale."
