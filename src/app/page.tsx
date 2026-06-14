@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 
-import { FrequentlyAskedQuestions } from "@/components/organisms/frequently-asked-questions";
-import { ContactRequestModal } from "@/components/organisms/contact-request-modal";
-import { Footer } from "@/components/organisms/footer";
-import { Navigation } from "@/components/organisms/navigation";
-import { OperationsHero } from "@/components/organisms/operations-hero";
-import { PricingPlans } from "@/components/organisms/pricing-plans";
-import { ProcessShowcase } from "@/components/organisms/process-showcase";
-import { StructuredFlow } from "@/components/organisms/structured-flow";
-import { UseCases } from "@/components/organisms/use-cases";
-import { WorkflowChallenge } from "@/components/organisms/workflow-challenge";
+import { FaqSection } from "@/components/organisms/faq-section";
+import { ContactModal } from "@/components/organisms/contact-modal";
+import { SiteFooter } from "@/components/organisms/site-footer";
+import { SiteHeader } from "@/components/organisms/site-header";
+import { HeroSection } from "@/components/organisms/hero-section";
+import { PricingSection } from "@/components/organisms/pricing-section";
+import { ProcessSection } from "@/components/organisms/process-section";
+import { WorkflowSection } from "@/components/organisms/workflow-section";
+import { SolutionsSection } from "@/components/organisms/solutions-section";
+import { ChallengesSection } from "@/components/organisms/challenges-section";
 
 export default function Home() {
   const [contactOpen, setContactOpen] = useState(false);
@@ -19,17 +19,17 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col px-12 pt-6" id="top">
       <div className="mx-auto flex w-full max-w-336 flex-1 flex-col">
-        <Navigation onContactClick={() => setContactOpen(true)} />
-        <OperationsHero onContactClick={() => setContactOpen(true)} />
-        <WorkflowChallenge />
-        <ProcessShowcase />
-        <UseCases />
-        <StructuredFlow />
-        <PricingPlans />
-        <FrequentlyAskedQuestions />
-        <Footer onContactClick={() => setContactOpen(true)} />
+        <SiteHeader onContactClick={() => setContactOpen(true)} />
+        <HeroSection onContactClick={() => setContactOpen(true)} />
+        <ChallengesSection />
+        <ProcessSection />
+        <SolutionsSection />
+        <WorkflowSection />
+        <PricingSection />
+        <FaqSection />
+        <SiteFooter onContactClick={() => setContactOpen(true)} />
       </div>
-      <ContactRequestModal
+      <ContactModal
         onClose={() => setContactOpen(false)}
         open={contactOpen}
       />
