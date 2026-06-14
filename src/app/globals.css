@@ -191,6 +191,14 @@
     letter-spacing: 0.01em;
   }
 
+  .type-h4-700 {
+    font-family: var(--font-family-host);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 112%;
+    letter-spacing: 0.01em;
+  }
+
   .type-h5 {
     font-family: var(--font-family-host);
     font-size: 30.4px;
@@ -214,6 +222,30 @@
 
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  .scrollbar-tertiary-narrow {
+    scrollbar-color: var(--text-tertiary) transparent;
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-tertiary-narrow::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-tertiary-narrow::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  .scrollbar-tertiary-narrow::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 8px;
+  }
+
+  .scrollbar-tertiary-narrow::-webkit-scrollbar-thumb {
+    background-color: var(--text-tertiary);
   }
 }
 

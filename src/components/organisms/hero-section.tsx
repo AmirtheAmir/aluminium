@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 
 interface HeroSectionProps {
   className?: string;
-  onContactClick?: () => void;
+  onQuestionnaireClick?: () => void;
 }
 
 export function HeroSection({
   className,
-  onContactClick,
+  onQuestionnaireClick,
 }: HeroSectionProps) {
   return (
     <section
@@ -39,7 +39,7 @@ export function HeroSection({
 
       <div className="relative z-10 flex flex-col items-center gap-12">
         <HeroContent />
-        <HeroCtaGroup onContactClick={onContactClick} />
+        <HeroCtaGroup onQuestionnaireClick={onQuestionnaireClick} />
       </div>
     </section>
   );

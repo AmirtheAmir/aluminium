@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { FormInput } from "@/components/atoms/form-input";
 import { ButtonPrimary } from "@/components/atoms/button-primary";
@@ -21,6 +21,8 @@ interface ContactFormProps {
   onSubmit: () => void;
 }
 
+type ContactFormErrors = Partial<Record<keyof ContactFormValues, string>>;
+
 const initialValues: ContactFormValues = {
   date: null,
   email: "",
@@ -38,22 +40,50 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const emailErrorMessage = "Invalid Email, Please Enter A Valid Email";
+const requiredErrorMessage = "This Field Is Required";
 
 function isEmailValid(email: string) {
   return emailPattern.test(email);
 }
 
+function isEmpty(value: string) {
+  return value.trim().length === 0;
+}
+
 export function ContactForm({ className, onSubmit }: ContactFormProps) {
+  const calendarWrapperRef = useRef<HTMLDivElement>(null);
   const [values, setValues] = useState(initialValues);
   const [calendarOpen, setCalendarOpen] = useState(false);
-  const [emailError, setEmailError] = useState("");
+  const [errors, setErrors] = useState<ContactFormErrors>({});
   const complete =
-    values.firstName.length > 0 &&
-    values.lastName.length > 0 &&
-    values.email.length > 0 &&
+    !isEmpty(values.firstName) &&
+    !isEmpty(values.lastName) &&
+    !isEmpty(values.email) &&
     isEmailValid(values.email) &&
     values.date &&
+    !isEmpty(values.message) &&
     values.time.length > 0;
+
+  useEffect(() => {
+    if (!calendarOpen) return;
+
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target;
+
+      if (
+        target instanceof Node &&
+        calendarWrapperRef.current?.contains(target)
+      ) {
+        return;
+      }
+
+      setCalendarOpen(false);
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [calendarOpen]);
 
   function updateValue<Key extends keyof ContactFormValues>(
     key: Key,
@@ -64,14 +94,37 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
       [key]: value,
     }));
 
-    if (key === "email") {
-      setEmailError("");
-    }
+    setErrors((currentErrors) => ({
+      ...currentErrors,
+      [key]: undefined,
+    }));
   }
 
   function handleSubmit() {
+    const nextErrors: ContactFormErrors = {};
+
+    if (isEmpty(values.firstName)) {
+      nextErrors.firstName = requiredErrorMessage;
+    }
+
+    if (isEmpty(values.lastName)) {
+      nextErrors.lastName = requiredErrorMessage;
+    }
+
     if (!isEmailValid(values.email)) {
-      setEmailError(emailErrorMessage);
+      nextErrors.email = emailErrorMessage;
+    }
+
+    if (!values.date) {
+      nextErrors.date = requiredErrorMessage;
+    }
+
+    if (isEmpty(values.message)) {
+      nextErrors.message = requiredErrorMessage;
+    }
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
       return;
     }
 
@@ -103,11 +156,13 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4">
           <FormInput
+            error={errors.firstName}
             onChange={(value) => updateValue("firstName", value)}
             placeholder="First Name"
             value={values.firstName}
           />
           <FormInput
+            error={errors.lastName}
             onChange={(value) => updateValue("lastName", value)}
             placeholder="Last Name"
             value={values.lastName}
@@ -115,14 +170,14 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
         </div>
 
         <FormInput
-          error={emailError}
+          error={errors.email}
           onChange={(value) => updateValue("email", value)}
           placeholder="Email"
           type="email"
           value={values.email}
         />
 
-        <div className="relative">
+        <div className="relative" ref={calendarWrapperRef}>
           <div className="flex items-center gap-1">
             <button
               className={cn(
@@ -150,6 +205,11 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
               {values.time || "10:00"}
             </button>
           </div>
+          {errors.date && (
+            <p className="type-xs-button absolute left-0 -bottom-5 text-text-tertiary">
+              {errors.date}
+            </p>
+          )}
 
           {calendarOpen && (
             <div className="absolute top-[calc(100%+12px)] left-0 z-20 w-108">
@@ -165,6 +225,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
 
         <FormInput
           className="h-42"
+          error={errors.message}
           multiline
           onChange={(value) => updateValue("message", value)}
           placeholder="Short Message"

@@ -62,6 +62,11 @@ function shouldUseNativeScroll(event: WheelEvent) {
 
   let element =
     event.target instanceof Element ? event.target : null;
+  const nativeScrollElement = element?.closest("[data-native-scroll]");
+
+  if (nativeScrollElement) {
+    return canScrollElement(nativeScrollElement, event.deltaY);
+  }
 
   while (
     element &&
@@ -76,6 +81,12 @@ function shouldUseNativeScroll(event: WheelEvent) {
   }
 
   return false;
+}
+
+function getNativeScrollElement(event: WheelEvent) {
+  const element = event.target instanceof Element ? event.target : null;
+
+  return element?.closest("[data-native-scroll]") ?? null;
 }
 
 export function SmoothScroll() {
@@ -96,6 +107,18 @@ export function SmoothScroll() {
 
     function handleWheel(event: WheelEvent) {
       const deltaY = getWheelDelta(event);
+      const nativeScrollElement = getNativeScrollElement(event);
+
+      if (document.body.dataset.pageScrollLocked === "true") {
+        if (nativeScrollElement && canScrollElement(nativeScrollElement, deltaY)) {
+          return;
+        }
+
+        event.preventDefault();
+        stopScrollAnimation();
+        targetScrollY = window.scrollY;
+        return;
+      }
 
       if (shouldUseNativeScroll(event) || deltaY === 0) {
         return;

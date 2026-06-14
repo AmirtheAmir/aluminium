@@ -46,6 +46,7 @@ export function ButtonPrimary({
       <a
         className={buttonClassName}
         href={href}
+        onClick={onClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

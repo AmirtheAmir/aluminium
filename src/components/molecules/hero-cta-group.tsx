@@ -3,10 +3,13 @@ import { cn } from "@/lib/utils";
 
 interface HeroCtaGroupProps {
   className?: string;
-  onContactClick?: () => void;
+  onQuestionnaireClick?: () => void;
 }
 
-export function HeroCtaGroup({ className, onContactClick }: HeroCtaGroupProps) {
+export function HeroCtaGroup({
+  className,
+  onQuestionnaireClick,
+}: HeroCtaGroupProps) {
   return (
     <div
       className={cn(
@@ -14,7 +17,7 @@ export function HeroCtaGroup({ className, onContactClick }: HeroCtaGroupProps) {
         className,
       )}
     >
-      <ButtonPrimary onClick={onContactClick}>Get Aluminium</ButtonPrimary>
+      <ButtonPrimary onClick={onQuestionnaireClick}>Get Aluminium</ButtonPrimary>
       <ButtonPrimary href="#pricing" tone="light">
         View Pricing
       </ButtonPrimary>

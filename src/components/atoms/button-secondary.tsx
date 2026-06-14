@@ -14,11 +14,12 @@ import {
 import { cn } from "@/lib/utils";
 
 type SecondaryButtonTone = "default" | "inverse";
-type SecondaryButtonIcon = "right" | "up";
+type SecondaryButtonIcon = "none" | "right" | "up";
 
 interface ButtonSecondaryProps {
   children?: string;
   className?: string;
+  disabled?: boolean;
   href?: string;
   icon?: SecondaryButtonIcon;
   onClick?: () => void;
@@ -33,6 +34,7 @@ const toneClassNames: Record<SecondaryButtonTone, string> = {
 export function ButtonSecondary({
   children = "Get in touch",
   className,
+  disabled,
   href,
   icon = "right",
   onClick,
@@ -58,9 +60,9 @@ export function ButtonSecondary({
       </TextReveal>
       {icon === "up" ? (
         <ArrowUpIcon aria-hidden="true" ref={arrowIconRef} size={18} />
-      ) : (
+      ) : icon === "right" ? (
         <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
-      )}
+      ) : null}
     </>
   );
 
@@ -86,6 +88,7 @@ export function ButtonSecondary({
   return (
     <button
       className={buttonClassName}
+      disabled={disabled}
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
