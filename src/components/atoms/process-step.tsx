@@ -16,7 +16,7 @@ export function ProcessStep({
   return (
     <div
       className={cn(
-        "flex flex-col gap-2 border-l p-3 transition-colors",
+        "flex flex-col gap-2 h-1/4 border-l p-3 transition-colors",
         active ? "border-border-secondary" : "border-border-primary",
       )}
     >

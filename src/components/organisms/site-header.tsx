@@ -12,7 +12,7 @@ export function SiteHeader({ className, onContactClick }: SiteHeaderProps) {
   return (
     <header
       className={cn(
-        "sticky top-6 z-50 grid w-full grid-cols-1 border border-border-primary bg-background-primary md:grid-cols-4",
+        "sticky top-4 z-50 grid w-full grid-cols-1 border border-border-primary bg-background-primary md:grid-cols-4",
         className,
       )}
     >

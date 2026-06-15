@@ -19,8 +19,8 @@ export default function Home() {
   const [questionnaireOpen, setQuestionnaireOpen] = useState(false);
 
   return (
-    <main className="flex flex-1 flex-col px-12 pt-6" id="top">
-      <div className="mx-auto flex w-full max-w-336 flex-1 flex-col">
+    <main className="m-4 flex flex-1 flex-col" id="top">
+      <div className="flex w-full flex-1 flex-col">
         <SiteHeader onContactClick={() => setContactOpen(true)} />
         <HeroSection onQuestionnaireClick={() => setQuestionnaireOpen(true)} />
         <ChallengesSection />

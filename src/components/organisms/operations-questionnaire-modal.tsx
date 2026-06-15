@@ -315,7 +315,7 @@ export function OperationsQuestionnaireModal({
       {open && (
         <motion.div
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-100 flex overscroll-none items-center justify-center bg-background-tinted p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-background-tinted p-4 backdrop-blur-sm"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           onClick={handleClose}
@@ -324,7 +324,7 @@ export function OperationsQuestionnaireModal({
           <motion.section
             animate={{ opacity: 1, scale: 1, y: 0 }}
             aria-modal="true"
-            className="relative flex h-162 max-h-[calc(100vh-48px)] w-166 flex-col overflow-hidden border border-border-secondary bg-background-primary p-4"
+            className="relative flex h-162 max-h-[calc(100vh-48px)] w-6/12 flex-col overflow-hidden border border-border-secondary bg-background-primary p-4"
             exit={{ opacity: 0, scale: 0.98, y: 12 }}
             initial={{ opacity: 0, scale: 0.98, y: 12 }}
             onClick={(event) => event.stopPropagation()}
