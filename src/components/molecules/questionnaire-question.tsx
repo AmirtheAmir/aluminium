@@ -17,8 +17,10 @@ export function QuestionnaireQuestion({
 }: QuestionnaireQuestionProps) {
   return (
     <fieldset>
-      <legend className="type-h4-700 text-text-primary">{title}</legend>
-      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+      <legend className="type-h4-700 max-[679px]:type-h5-mobile text-text-primary">
+        {title}
+      </legend>
+      <div className="mt-6 flex flex-wrap gap-x-4 gap-y-3 min-[680px]:gap-x-6">
         {answers.map((answer) => (
           <QuestionOption
             key={answer}

@@ -429,7 +429,7 @@ export function OperationsQuestionnaireModal({
       {open && (
         <motion.div
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-background-tinted p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-background-tinted p-6 backdrop-blur-sm"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           onClick={handleClose}
@@ -438,7 +438,7 @@ export function OperationsQuestionnaireModal({
           <motion.section
             animate={{ opacity: 1, scale: 1, y: 0 }}
             aria-modal="true"
-            className="relative flex h-162 max-h-[calc(100vh-48px)] w-6/12 flex-col overflow-hidden border border-border-secondary bg-background-primary p-4"
+            className="relative flex h-145 max-h-[calc(100vh-24px)] w-165 max-w-[calc(100vw-24px)] flex-col overflow-hidden border border-border-secondary bg-background-primary p-3 min-[680px]:h-162 min-[680px]:max-h-[calc(100vh-48px)] min-[680px]:p-4"
             exit={{ opacity: 0, scale: 0.98, y: 12 }}
             initial={{ opacity: 0, scale: 0.98, y: 12 }}
             onClick={(event) => event.stopPropagation()}
@@ -447,20 +447,20 @@ export function OperationsQuestionnaireModal({
           >
             <button
               aria-label="Close questions modal"
-              className="absolute right-4 top-4 z-10 flex cursor-pointer items-center justify-center text-text-primary"
+              className="absolute top-1 right-1 z-10 flex cursor-pointer items-center justify-center text-text-primary min-[680px]:top-4 min-[680px]:right-4"
               onClick={handleClose}
               type="button"
             >
-              <XIcon aria-hidden="true" size={16} />
+              <XIcon aria-hidden="true" size={18} />
             </button>
 
             {step === "questions" ? (
               <div
-                className="scrollbar-none flex flex-col gap-12 overflow-y-auto overscroll-contain"
+                className="scrollbar-none flex h-full min-h-0 flex-col gap-12 overflow-y-auto overscroll-contain"
                 data-native-scroll
                 ref={questionsScrollRef}
               >
-                <h2 className="type-h2 text-text-primary uppercase">
+                <h2 className="type-h2 max-[679px]:type-h2-mobile text-text-primary uppercase">
                   Questions
                 </h2>
 
@@ -489,7 +489,7 @@ export function OperationsQuestionnaireModal({
 
                 <ButtonSecondary
                   className={cn(
-                    "w-full justify-center",
+                    "w-full justify-center max-[679px]:p-3",
                     !complete && "text-text-tertiary",
                   )}
                   icon="none"
@@ -500,12 +500,12 @@ export function OperationsQuestionnaireModal({
                 </ButtonSecondary>
               </div>
             ) : (
-              <div className="flex h-full flex-col justify-between">
+              <div className="scrollbar-none flex h-full min-h-0 flex-col justify-between gap-12 overflow-y-auto overscroll-contain">
                 <div>
-                  <h2 className="type-h2 text-text-primary uppercase">
+                  <h2 className="type-h2 max-[679px]:type-h2-mobile text-text-primary uppercase">
                     Tell Us More
                   </h2>
-                  <p className="type-m-500 mt-12 text-text-primary">
+                  <p className="type-m-500 max-[679px]:type-s-body-500 mt-6 text-text-primary min-[680px]:mt-12">
                     Based on your answers, the{" "}
                     <Highlight>{recommendedPlan.name}</Highlight> plan is the
                     best fit for your team. You described yourself as a{" "}
@@ -538,20 +538,22 @@ export function OperationsQuestionnaireModal({
                   </p>
                 </div>
 
-                <article className="flex flex-col gap-6 border border-border-secondary bg-background-inverse p-4 text-text-inverse">
+                <article className="flex flex-col gap-4 border border-border-secondary bg-background-inverse p-3 text-text-inverse min-[680px]:gap-6 min-[680px]:p-4">
                   <div>
                     <p className="type-s-button-600 text-text-secondary-inverse uppercase">
                       {recommendedPlan.name}
                     </p>
                     <div className="mt-3 flex items-end gap-1">
                       <p className="type-h3">${recommendedPlan.price}</p>
-                      <p className="type-m-500 pb-2 text-text-inactive-inverse-primary">
+                      <p className="type-m-500 max-[679px]:type-s-button-500 pb-2 text-text-inactive-inverse-primary">
                         /Month
                       </p>
                     </div>
                   </div>
 
-                  <p className="type-m-body-500">{recommendedPlan.description}</p>
+                  <p className="type-m-body-500 max-[679px]:type-s-body-500">
+                    {recommendedPlan.description}
+                  </p>
 
                   <ButtonPrimary
                     className="w-full"

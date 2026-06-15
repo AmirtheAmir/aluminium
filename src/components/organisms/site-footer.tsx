@@ -103,9 +103,9 @@ export function SiteFooter({ className }: SiteFooterProps) {
           <div className="flex flex-col items-start gap-1 lg:gap-2">
             {socialLinks.map((link) => (
               <SocialLink
-                className="type-footer-social gap-3 lg:gap-1"
+                className="type-footer-social gap-1 lg:gap-2"
                 href={link.href}
-                iconSize={isCompact ? 16 : 14}
+                iconSize={isCompact ? 14 : 16}
                 key={link.label}
                 onClick={(event) => {
                   event.preventDefault();
@@ -118,7 +118,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
           </div>
         </div>
 
-        <div className="order-3 flex min-h-50 items-end justify-end border-t border-border-primary p-3 min-[460px]:border-r min-[460px]:border-t lg:order-4 lg:border-r-0 lg:border-t-0 lg:p-4">
+        <div className="order-3 flex min-h-50 items-end justify-end border-border-primary p-3 min-[460px]:border-r min-[460px]:border-t lg:order-4 lg:border-r-0 lg:border-t-0 lg:p-4">
           <p className="type-s-button-600 text-text-primary">
             Created & Designed By Amir Nasseri
           </p>

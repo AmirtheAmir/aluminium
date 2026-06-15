@@ -27,7 +27,7 @@ export function FormInput({
   const [focused, setFocused] = useState(false);
   const active = focused || value.length > 0;
   const classNames = cn(
-    "type-m-body-500 w-full border-b bg-transparent p-4 outline-none transition-colors placeholder:text-text-secondary",
+    "type-m-body-500 max-[679px]:type-s-button-500 w-full border-b bg-transparent p-4 outline-none transition-colors placeholder:text-text-secondary max-[679px]:p-3",
     active
       ? "border-border-secondary text-text-primary"
       : "border-border-primary text-text-secondary",

@@ -15,14 +15,14 @@ export function QuestionOption({
 }: QuestionOptionProps) {
   return (
     <button
-      className="type-m-500 flex cursor-pointer items-center gap-3 text-left text-text-primary"
+      className="type-m-500 max-[679px]:type-s-button-500 flex cursor-pointer items-center gap-2 text-left text-text-primary min-[680px]:gap-3"
       onClick={onSelect}
       type="button"
     >
       <span
         aria-hidden="true"
         className={cn(
-          "size-5 border-2 border-text-primary transition-colors",
+          "size-4 border-2 border-text-primary transition-colors min-[680px]:size-5",
           selected && "bg-text-primary",
         )}
       />

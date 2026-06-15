@@ -20,7 +20,7 @@ export function QuestionsContainer({
   questions,
 }: QuestionsContainerProps) {
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-12 min-[680px]:gap-20">
       {questions.map((question) => (
         <QuestionnaireQuestion
           answers={question.answers}
