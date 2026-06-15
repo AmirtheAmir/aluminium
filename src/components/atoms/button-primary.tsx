@@ -36,7 +36,7 @@ export function ButtonPrimary({
     </TextReveal>
   );
   const buttonClassName = cn(
-    "type-p-strong inline-flex w-48 cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase",
+    "type-m-600 inline-flex w-48 cursor-pointer items-center justify-center border px-7 py-4 text-center uppercase",
     toneClassNames[tone],
     className,
   );

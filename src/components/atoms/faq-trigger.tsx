@@ -73,7 +73,7 @@ export function FaqTrigger({
         )}
       >
         <div className="overflow-hidden">
-          <p className="type-p-body mt-3 text-text-primary">{answer}</p>
+          <p className="type-m-body-500 mt-3 text-text-primary">{answer}</p>
         </div>
       </div>
     </article>

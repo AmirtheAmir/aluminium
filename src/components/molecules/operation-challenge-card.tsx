@@ -26,13 +26,13 @@ export function OperationChallengeCard({
         className,
       )}
     >
-      <p className="type-p-strong text-text-inactive-primary uppercase">
+      <p className="type-m-600 text-text-inactive-primary uppercase">
         {eyebrow}
       </p>
       <LottiePreview animationData={animationData} />
       <div className="flex flex-col gap-4">
         <h3 className="type-h6 text-text-primary">{title}</h3>
-        <p className="type-p-body text-text-primary">{subtitle}</p>
+        <p className="type-m-body-500 text-text-primary">{subtitle}</p>
       </div>
     </article>
   );

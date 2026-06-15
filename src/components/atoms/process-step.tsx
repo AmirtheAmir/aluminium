@@ -22,7 +22,7 @@ export function ProcessStep({
     >
       <p
         className={cn(
-          "type-p-strong uppercase",
+          "type-m-600 uppercase",
           active ? "text-text-tertiary" : "text-text-inactive-primary",
         )}
       >
@@ -40,7 +40,7 @@ export function ProcessStep({
         </h3>
         <p
           className={cn(
-            "type-p-body",
+            "type-m-body-500",
             active ? "text-text-primary" : "text-text-inactive-secondary",
           )}
         >

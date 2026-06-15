@@ -35,7 +35,7 @@ export function SocialLink({
   return (
     <a
       className={cn(
-        "type-s-button-strong inline-flex cursor-pointer items-center gap-1 uppercase text-text-primary",
+        "type-s-button-600 inline-flex cursor-pointer items-center gap-1 uppercase text-text-primary",
         className,
       )}
       href={href}

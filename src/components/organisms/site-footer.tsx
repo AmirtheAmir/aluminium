@@ -49,7 +49,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
               <Logo aria-hidden="true" />
               <p className="type-h4 uppercase">Aluminium</p>
             </div>
-            <p className="type-s-body mt-4 text-text-secondary">
+            <p className="type-s-body-500 mt-4 text-text-secondary">
               Helps teams turn daily operations into clear, structured
               workflows.
             </p>
@@ -77,7 +77,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
         </nav>
 
         <div className="flex flex-col gap-4 border-border-primary p-4 md:border-r">
-          <p className="type-s-button text-text-inactive-primary uppercase">
+          <p className="type-s-button-500 text-text-inactive-primary uppercase">
             Follow on
           </p>
           <div className="flex flex-col items-start gap-2">
@@ -97,7 +97,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
         </div>
 
         <div className="flex min-h-50 items-end justify-end p-4">
-          <p className="type-s-button-strong text-text-primary">
+          <p className="type-s-button-600 text-text-primary">
             Created & Designed By Amir Nasseri
           </p>
         </div>
@@ -111,7 +111,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
 
       {socialNoticeOpen && (
         <div className="fixed bottom-6 right-6 z-100 flex h-49 w-3/12 items-center justify-center bg-background-inverse p-4 e">
-          <p className="type-p-body max-w-64 text-text-inverse">
+          <p className="type-m-body-500 max-w-64 text-text-inverse">
             The social links have yet to be connected
           </p>
         </div>

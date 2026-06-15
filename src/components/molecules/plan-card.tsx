@@ -46,7 +46,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
       <div className="flex flex-col">
         <p
           className={cn(
-            "type-s-button-strong font-bold uppercase transition-colors",
+            "type-s-button-600 font-bold uppercase transition-colors",
             hovered ? "text-text-secondary-inverse" : "text-text-secondary",
           )}
         >
@@ -70,7 +70,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
           </p>
           <p
             className={cn(
-              "type-p pb-2 transition-colors",
+              "type-m-500 pb-2 transition-colors",
               hovered
                 ? "text-text-inactive-inverse-primary"
                 : "text-text-inactive-primary",
@@ -83,7 +83,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
 
       <p
         className={cn(
-          "type-p-body transition-colors",
+          "type-m-body-500 transition-colors",
           hovered ? "text-text-inverse" : "text-text-primary",
         )}
       >
@@ -99,7 +99,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
         />
         <p
           className={cn(
-            "type-s-button uppercase transition-colors",
+            "type-s-button-500 uppercase transition-colors",
             hovered
               ? "text-text-inactive-inverse-primary"
               : "text-text-inactive-primary",

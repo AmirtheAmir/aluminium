@@ -39,7 +39,7 @@ export function WorkflowStep({
         </h3>
         <p
           className={cn(
-            "type-p-body transition-colors",
+            "type-m-body-500 transition-colors",
             active ? "text-text-primary" : "text-text-inactive-secondary",
           )}
         >

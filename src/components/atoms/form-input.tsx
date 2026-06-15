@@ -27,7 +27,7 @@ export function FormInput({
   const [focused, setFocused] = useState(false);
   const active = focused || value.length > 0;
   const classNames = cn(
-    "type-p-body w-full border border-x-0 border-t-0 bg-transparent relative p-4 outline-none transition-colors placeholder:text-text-secondary",
+    "type-m-body-500 w-full border border-x-0 border-t-0 bg-transparent relative p-4 outline-none transition-colors placeholder:text-text-secondary",
     active
       ? "border-border-secondary text-text-primary"
       : "border-border-primary text-text-secondary",
@@ -35,7 +35,7 @@ export function FormInput({
     className,
   );
   const errorElement = error ? (
-    <p className="type-xs-button absolute left-0 -bottom-5 text-text-tertiary">
+    <p className="type-xs-button-500 absolute left-0 -bottom-5 text-text-tertiary">
       {error}
     </p>
   ) : null;

@@ -86,7 +86,7 @@ export function BookingCalendar({
           >
             <ChevronLeftIcon aria-hidden="true" size={16} />
           </button>
-          <p className="type-xs-button-strong text-center">
+          <p className="type-xs-button-600 text-center">
             {monthFormatter.format(visibleMonth)}
           </p>
           <button
@@ -102,7 +102,7 @@ export function BookingCalendar({
         <div className="grid grid-cols-7 gap-1">
           {weekDays.map((day) => (
             <span
-              className="type-xs-button flex size-7 items-center justify-center text-text-inactive-inverse-primary"
+              className="type-xs-button-500 flex size-7 items-center justify-center text-text-inactive-inverse-primary"
               key={day}
             >
               {day}
@@ -119,7 +119,7 @@ export function BookingCalendar({
             return (
               <button
                 className={cn(
-                  "type-xs-button flex size-7 items-center justify-center transition-colors",
+                  "type-xs-button-500 flex size-7 items-center justify-center transition-colors",
                   selected
                     ? "bg-background-primary text-text-primary"
                     : "text-text-inverse",
@@ -147,7 +147,7 @@ export function BookingCalendar({
             return (
               <button
                 className={cn(
-                  "type-xs-button flex cursor-pointer items-center justify-center p-3 transition-colors",
+                  "type-xs-button-500 flex cursor-pointer items-center justify-center p-3 transition-colors",
                   selected
                     ? "bg-background-primary text-text-primary"
                     : "bg-background-inverse-secondary text-text-inactive-inverse-primary",

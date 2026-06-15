@@ -505,11 +505,13 @@ export function OperationsQuestionnaireModal({
                   <h2 className="type-h2 text-text-primary uppercase">
                     Tell Us More
                   </h2>
-                  <p className="type-p mt-12 text-text-primary">
+                  <p className="type-m-500 mt-12 text-text-primary">
                     Based on your answers, the{" "}
                     <Highlight>{recommendedPlan.name}</Highlight> plan is the
                     best fit for your team. You described yourself as a{" "}
-                    <Highlight>{recommendationAnswers.role || "team operator"}</Highlight>{" "}
+                    <Highlight>
+                      {recommendationAnswers.role || "team operator"}
+                    </Highlight>{" "}
                     working with a{" "}
                     <Highlight>
                       {recommendationAnswers.teamSize || "focused team"}
@@ -538,18 +540,18 @@ export function OperationsQuestionnaireModal({
 
                 <article className="flex flex-col gap-6 border border-border-secondary bg-background-inverse p-4 text-text-inverse">
                   <div>
-                    <p className="type-s-button-strong text-text-secondary-inverse uppercase">
+                    <p className="type-s-button-600 text-text-secondary-inverse uppercase">
                       {recommendedPlan.name}
                     </p>
                     <div className="mt-3 flex items-end gap-1">
                       <p className="type-h3">${recommendedPlan.price}</p>
-                      <p className="type-p pb-2 text-text-inactive-inverse-primary">
+                      <p className="type-m-500 pb-2 text-text-inactive-inverse-primary">
                         /Month
                       </p>
                     </div>
                   </div>
 
-                  <p className="type-p-body">{recommendedPlan.description}</p>
+                  <p className="type-m-body-500">{recommendedPlan.description}</p>
 
                   <ButtonPrimary
                     className="w-full"

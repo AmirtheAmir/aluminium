@@ -30,7 +30,7 @@ export function PlanFeature({
   return (
     <li
       className={cn(
-        "type-s-body flex items-center gap-3 transition-colors",
+        "type-s-body-500 flex items-center gap-3 transition-colors",
         inverse ? "text-text-inverse" : "text-text-tertiary",
       )}
       onMouseEnter={handleMouseEnter}

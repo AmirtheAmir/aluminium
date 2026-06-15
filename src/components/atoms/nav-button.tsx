@@ -23,7 +23,7 @@ export function NavButton({
     </TextReveal>
   );
   const buttonClassName = cn(
-    "type-s-button inline-flex cursor-pointer items-center justify-center bg-background-primary p-4 text-text-primary transition-colors active:bg-background-active",
+    "type-s-button-500 inline-flex cursor-pointer items-center justify-center bg-background-primary p-4 text-text-primary transition-colors active:bg-background-active",
     className,
   );
 

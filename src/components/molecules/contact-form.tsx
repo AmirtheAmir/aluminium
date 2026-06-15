@@ -181,7 +181,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
           <div className="flex items-center gap-1">
             <button
               className={cn(
-                "type-p-body flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
+                "type-m-body-500 flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
                 values.date
                   ? "border-border-secondary text-text-primary"
                   : "border-border-primary text-text-secondary",
@@ -194,7 +194,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
             <span className="w-px bg-border-primary" />
             <button
               className={cn(
-                "type-p-body flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
+                "type-m-body-500 flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
                 values.time
                   ? "border-border-secondary text-text-primary"
                   : "border-border-primary text-text-secondary",
@@ -206,7 +206,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
             </button>
           </div>
           {errors.date && (
-            <p className="type-xs-button absolute left-0 -bottom-5 text-text-tertiary">
+            <p className="type-xs-button-500 absolute left-0 -bottom-5 text-text-tertiary">
               {errors.date}
             </p>
           )}

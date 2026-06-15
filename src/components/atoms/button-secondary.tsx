@@ -67,7 +67,7 @@ export function ButtonSecondary({
   );
 
   const buttonClassName = cn(
-    "type-s-button inline-flex cursor-pointer items-center justify-between border p-4 uppercase",
+    "type-s-button-500 inline-flex cursor-pointer items-center justify-between border py-4 px-7 uppercase",
     toneClassNames[tone],
     className,
   );

@@ -15,13 +15,13 @@ export function SectionIntro({
 }: SectionIntroProps) {
   return (
     <div className={cn("flex w-full flex-col md:w-1/2", className)}>
-      <p className="type-s-button text-text-inactive-primary uppercase">
+      <p className="type-s-button-500 text-text-inactive-primary uppercase">
         {eyebrow}
       </p>
 
       <div className="mt-6 flex flex-col gap-3">
         <h2 className="type-h5 text-balance text-text-primary">{title}</h2>
-        <p className="type-s-body text-text-primary">{subtitle}</p>
+        <p className="type-s-body-500 text-text-primary">{subtitle}</p>
       </div>
     </div>
   );

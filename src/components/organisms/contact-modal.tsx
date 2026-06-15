@@ -70,7 +70,7 @@ export function ContactModal({
                 <h2 className="type-h2 text-text-primary uppercase">
                   Successfully Sent
                 </h2>
-                <p className="type-p-body mt-6 max-w-md text-text-primary">
+                <p className="type-m-body-500 mt-6 max-w-md text-text-primary">
                   Thank you for reaching out.
                   <br />
                   Our support team will review your message and get back to you
@@ -89,7 +89,7 @@ export function ContactModal({
                     </h3>
                   </div>
 
-                  <p className="type-p-body text-text-primary">
+                  <p className="type-m-body-500 text-text-primary">
                     Leave your phone number, email, and a short message about
                     your current situation. Our support team will review your
                     request and get back to you with the next step.
