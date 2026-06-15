@@ -212,7 +212,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
           )}
 
           {calendarOpen && (
-            <div className="absolute top-[calc(100%+12px)] left-0 z-20 w-108">
+            <div className="absolute top-[calc(100%+12px)] left-0 z-20 w-full">
               <BookingCalendar
                 onDateChange={handleDateChange}
                 onTimeChange={handleTimeChange}
