@@ -12,7 +12,7 @@ export function ProcessPreview({ label, Illustration }: ProcessPreviewProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="flex w-full flex-col gap-4 border border-border-primary px-4 pb-12 pt-4 md:w-1/2">
+    <div className="flex w-full flex-col gap-4 border border-border-primary px-4 pb-12 pt-4 lg:w-1/2">
       <p className="type-m-600 text-text-secondary">{label}</p>
 
       <div className="relative flex h-109 w-full items-center justify-center overflow-hidden">

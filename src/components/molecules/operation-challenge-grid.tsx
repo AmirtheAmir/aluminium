@@ -43,7 +43,7 @@ const challengeCards: ChallengeCardItem[] = [
 export function OperationChallengeGrid({ className }: OperationChallengeGridProps) {
   return (
     <div
-      className={cn("grid w-full grid-cols-1 gap-3 md:grid-cols-3", className)}
+      className={cn("grid w-full grid-cols-1 gap-3 lg:grid-cols-3", className)}
     >
       {challengeCards.map((card) => (
         <OperationChallengeCard

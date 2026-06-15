@@ -30,7 +30,7 @@ export function FaqList({
   return (
     <>
       {/* Mobile layout */}
-      <div className={cn("flex w-full flex-col gap-3 md:hidden", className)}>
+      <div className={cn("flex w-full flex-col gap-3 lg:hidden", className)}>
         {questions.map((item) => (
           <FaqTrigger
             key={item.question}
@@ -41,7 +41,7 @@ export function FaqList({
       </div>
 
       {/* Desktop layout */}
-      <div className={cn("hidden w-full flex-col gap-3 md:flex", className)}>
+      <div className={cn("hidden w-full flex-col gap-3 lg:flex", className)}>
         {rows.map((row) => (
           <div
             className="grid grid-cols-2 items-start gap-3"

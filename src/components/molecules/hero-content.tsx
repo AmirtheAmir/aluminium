@@ -12,15 +12,15 @@ export function HeroContent({ className }: HeroContentProps) {
         className,
       )}
     >
-      <p className="type-s-button-500 text-text-inactive-primary uppercase">
+      <p className="type-hero-eyebrow text-text-inactive-primary uppercase">
         Built for modern operations
       </p>
 
-      <div className="mt-6 flex flex-col items-center gap-3">
-        <h2 className="type-h2 max-w-176 text-balance text-text-primary">
+      <div className="mt-3 flex flex-col items-center gap-2 lg:mt-6 lg:gap-3">
+        <h2 className="type-hero-title max-w-176 text-balance text-text-primary">
           Turn Messy Workflows Into Clear System
         </h2>
-        <p className="type-heading-5-500 max-w-172 text-balance text-text-primary">
+        <p className="type-hero-subtitle max-w-172 text-balance text-text-primary">
           We help businesses organize daily operations into clean structured
           processes that are easier to manage, scale, and improve.
         </p>

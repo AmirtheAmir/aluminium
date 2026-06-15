@@ -49,6 +49,14 @@
     letter-spacing: 0.005em;
   }
 
+  .type-xs-body-500 {
+    font-family: var(--font-family-inter);
+    font-size: 12.64px;
+    font-weight: 500;
+    line-height: 158%;
+    letter-spacing: 0.015em;
+  }
+
   .type-s-body-500 {
     font-family: var(--font-family-inter);
     font-size: 14.22px;
@@ -97,12 +105,130 @@
     letter-spacing: 0;
   }
 
+  .type-primary-button {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 126%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-primary-button {
+      font-size: 14.22px;
+      line-height: 125%;
+    }
+  }
+
+  .type-hero-eyebrow {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-hero-eyebrow {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
   .type-heading-5-500 {
     font-family: var(--font-family-inter);
     font-size: 20.25px;
     font-weight: 500;
     line-height: 138%;
     letter-spacing: -0.005em;
+  }
+
+  .type-heading-6-500 {
+    font-family: var(--font-family-inter);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 144%;
+    letter-spacing: 0;
+  }
+
+  .type-hero-subtitle {
+    font-family: var(--font-family-inter);
+    font-size: 20.25px;
+    font-weight: 500;
+    line-height: 138%;
+    letter-spacing: -0.005em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-hero-subtitle {
+      font-size: 18px;
+      line-height: 144%;
+      letter-spacing: 0;
+    }
+  }
+
+  .type-section-eyebrow {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-section-eyebrow {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
+  .type-section-subtitle {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 155%;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-section-subtitle {
+      font-size: 12.64px;
+      line-height: 158%;
+      letter-spacing: 0.015em;
+    }
+  }
+
+  .type-challenge-eyebrow {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 126%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-challenge-eyebrow {
+      font-size: 14.22px;
+      line-height: 125%;
+    }
+  }
+
+  .type-challenge-subtitle {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-challenge-subtitle {
+      font-size: 14.22px;
+      line-height: 155%;
+      letter-spacing: 0.01em;
+    }
   }
 
   .type-h1 {
@@ -119,6 +245,28 @@
     font-weight: 600;
     line-height: 103%;
     letter-spacing: -0.025em;
+  }
+
+  .type-h2-mobile {
+    font-family: var(--font-family-host);
+    font-size: 43.22px;
+    font-weight: 600;
+    line-height: 103%;
+    letter-spacing: -0.025em;
+  }
+
+  .type-hero-title {
+    font-family: var(--font-family-host);
+    font-size: 54.7px;
+    font-weight: 600;
+    line-height: 103%;
+    letter-spacing: -0.025em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-hero-title {
+      font-size: 43.22px;
+    }
   }
 
   .type-h3 {
@@ -153,12 +301,56 @@
     letter-spacing: -0.01em;
   }
 
+  .type-h5-mobile {
+    font-family: var(--font-family-host);
+    font-size: 26.96px;
+    font-weight: 700;
+    line-height: 112%;
+    letter-spacing: -0.01em;
+  }
+
   .type-h6 {
     font-family: var(--font-family-host);
     font-size: 21.3px;
     font-weight: 700;
     line-height: 114%;
     letter-spacing: -0.01em;
+  }
+
+  .type-h7 {
+    font-family: var(--font-family-host);
+    font-size: 18.93px;
+    font-weight: 700;
+    line-height: 114%;
+    letter-spacing: -0.01em;
+  }
+
+  .type-section-title {
+    font-family: var(--font-family-host);
+    font-size: 30.4px;
+    font-weight: 700;
+    line-height: 112%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-section-title {
+      font-size: 26.96px;
+    }
+  }
+
+  .type-challenge-title {
+    font-family: var(--font-family-host);
+    font-size: 21.3px;
+    font-weight: 700;
+    line-height: 114%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-challenge-title {
+      font-size: 18.93px;
+    }
   }
 
   .scrollbar-none {

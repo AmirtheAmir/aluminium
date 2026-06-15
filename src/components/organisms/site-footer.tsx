@@ -42,8 +42,8 @@ export function SiteFooter({ className }: SiteFooterProps) {
 
   return (
     <footer className={cn("w-full bg-background-primary pb-6 pt-36", className)}>
-      <div className="grid w-full grid-cols-1 border border-border-primary md:grid-cols-4">
-        <div className="flex min-h-50 flex-col border-border-primary md:border-r">
+      <div className="grid w-full grid-cols-1 border border-border-primary lg:grid-cols-4">
+        <div className="flex min-h-50 flex-col border-border-primary lg:border-r">
           <div className="flex flex-1 flex-col p-4">
             <div className="flex items-center gap-2 text-text-primary">
               <Logo aria-hidden="true" />
@@ -58,7 +58,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
 
         <nav
           aria-label="Footer navigation"
-          className="border-border-primary md:border-r"
+          className="border-border-primary lg:border-r"
         >
           {footerNavigationItems.map((item, index) => (
             <ButtonSecondary
@@ -76,7 +76,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
           ))}
         </nav>
 
-        <div className="flex flex-col gap-4 border-border-primary p-4 md:border-r">
+        <div className="flex flex-col gap-4 border-border-primary p-4 lg:border-r">
           <p className="type-s-button-500 text-text-inactive-primary uppercase">
             Follow on
           </p>

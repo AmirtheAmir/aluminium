@@ -117,7 +117,7 @@ export function ProcessSection({ className }: ProcessSectionProps) {
           title="Built To Turn Messy Operations Into Clear Systems"
         />
 
-        <div className="flex w-full flex-col gap-3 md:flex-row">
+        <div className="flex w-full flex-col gap-3 lg:flex-row">
           <ProcessPreview
             Illustration={activeStep.Illustration}
             label={`Step ${activeIndex + 1}`}

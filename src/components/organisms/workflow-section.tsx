@@ -33,13 +33,13 @@ export function WorkflowSection({ className }: WorkflowSectionProps) {
   return (
     <section
       className={cn(
-        "grid w-full grid-cols-1 gap-3 border-b border-border-primary bg-background-primary py-36 md:grid-cols-2",
+        "grid w-full grid-cols-1 gap-3 border-b border-border-primary bg-background-primary py-36 lg:grid-cols-2",
         className,
       )}
       id="workflow"
     >
       <SectionIntro
-        className="md:sticky md:top-36 md:w-full md:self-start"
+        className="lg:sticky lg:top-36 lg:w-full lg:self-start"
         eyebrow="Structured flow"
         subtitle="Aluminium gives teams a shared way to move daily work forward, so requests, responsibilities, updates, and outcomes stay connected across the business."
         title="From Scattered Work To Steady Execution"

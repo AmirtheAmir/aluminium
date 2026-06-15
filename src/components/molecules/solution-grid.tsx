@@ -38,7 +38,7 @@ const useCases = [
 export function SolutionGrid({ className }: SolutionGridProps) {
   return (
     <div
-      className={cn("grid w-full grid-cols-1 gap-3 md:grid-cols-4", className)}
+      className={cn("grid w-full grid-cols-1 gap-3 lg:grid-cols-4", className)}
     >
       {useCases.map((useCase) => (
         <SolutionCard

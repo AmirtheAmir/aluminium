@@ -97,7 +97,7 @@ export function PricingSection({ className }: PricingSectionProps) {
           onPeriodChange={setActivePeriod}
         />
 
-        <div className="mt-6 grid w-full grid-cols-1 gap-3 md:grid-cols-3">
+        <div className="mt-6 grid w-full grid-cols-1 gap-3 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
             <PlanCard
               key={plan.name}

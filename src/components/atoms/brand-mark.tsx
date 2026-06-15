@@ -1,12 +1,22 @@
+import type { ComponentType, SVGProps } from "react";
+
 import { Logo } from "@/assets/icons";
 import { ThemeSwitch } from "@/components/atoms/theme-switch";
 import { cn } from "@/lib/utils";
 
 interface BrandMarkProps {
   className?: string;
+  logo?: ComponentType<SVGProps<SVGSVGElement>>;
+  logoClassName?: string;
+  switchSize?: number;
 }
 
-export function BrandMark({ className }: BrandMarkProps) {
+export function BrandMark({
+  className,
+  logo: LogoComponent = Logo,
+  logoClassName,
+  switchSize = 14,
+}: BrandMarkProps) {
   return (
     <div
       className={cn(
@@ -20,9 +30,9 @@ export function BrandMark({ className }: BrandMarkProps) {
           className="inline-flex cursor-pointer items-center justify-center"
           href="#top"
         >
-          <Logo aria-hidden="true" />
+          <LogoComponent aria-hidden="true" className={logoClassName} />
         </a>
-        <ThemeSwitch size={14} />
+        <ThemeSwitch size={switchSize} />
       </div>
     </div>
   );

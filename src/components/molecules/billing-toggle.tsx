@@ -21,7 +21,7 @@ export function BillingToggle({
   return (
     <div
       className={cn(
-        "grid w-full grid-cols-2 border p-1 border-border-primary md:w-1/6",
+        "grid w-full grid-cols-2 border border-border-primary p-1 lg:w-1/6",
         className,
       )}
     >

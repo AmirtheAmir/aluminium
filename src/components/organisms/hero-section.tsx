@@ -15,7 +15,7 @@ export function HeroSection({
   return (
     <section
       className={cn(
-        "relative flex h-207 w-full flex-col items-center justify-center overflow-hidden border-x border-b border-border-primary bg-background-primary px-4 pb-12",
+        "relative flex h-207 w-full flex-col items-center justify-center overflow-hidden border-x border-b border-border-primary bg-background-primary px-3 pb-6 lg:px-4 lg:pb-12",
         className,
       )}
       id="operations"
@@ -37,7 +37,7 @@ export function HeroSection({
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-12">
+      <div className="relative z-10 flex flex-col items-center gap-6 lg:gap-12">
         <HeroContent />
         <HeroCtaGroup onQuestionnaireClick={onQuestionnaireClick} />
       </div>

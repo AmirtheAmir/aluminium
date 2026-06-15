@@ -58,7 +58,7 @@ export function ContactModal({
           <motion.section
             animate={{ opacity: 1, scale: 1, y: 0 }}
             aria-modal="true"
-            className="grid min-h-162 w-6/12 grid-cols-1 gap-4 border border-border-secondary bg-background-primary p-4 md:grid-cols-2"
+            className="grid min-h-162 w-6/12 grid-cols-1 gap-4 border border-border-secondary bg-background-primary p-4 lg:grid-cols-2"
             exit={{ opacity: 0, scale: 0.98, y: 12 }}
             initial={{ opacity: 0, scale: 0.98, y: 12 }}
             onClick={(event) => event.stopPropagation()}

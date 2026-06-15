@@ -10,16 +10,30 @@ const navigationItems = [
 
 interface NavLinksProps {
   className?: string;
+  itemClassName?: string;
+  itemSize?: "compact" | "default";
+  onNavigate?: () => void;
 }
 
-export function NavLinks({ className }: NavLinksProps) {
+export function NavLinks({
+  className,
+  itemClassName,
+  itemSize,
+  onNavigate,
+}: NavLinksProps) {
   return (
     <nav
       aria-label="Primary navigation"
       className={cn("flex w-full justify-center", className)}
     >
       {navigationItems.map((item) => (
-        <NavButton href={item.href} key={item.label}>
+        <NavButton
+          className={itemClassName}
+          href={item.href}
+          key={item.label}
+          onClick={onNavigate}
+          size={itemSize}
+        >
           {item.label}
         </NavButton>
       ))}

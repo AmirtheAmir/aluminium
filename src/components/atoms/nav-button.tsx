@@ -9,12 +9,16 @@ interface NavButtonProps {
   children: string;
   className?: string;
   href?: string;
+  onClick?: () => void;
+  size?: "compact" | "default";
 }
 
 export function NavButton({
   children,
   className,
   href,
+  onClick,
+  size = "default",
 }: NavButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const content = (
@@ -23,7 +27,8 @@ export function NavButton({
     </TextReveal>
   );
   const buttonClassName = cn(
-    "type-s-button-500 inline-flex cursor-pointer items-center justify-center bg-background-primary p-4 text-text-primary transition-colors active:bg-background-active",
+    "inline-flex cursor-pointer items-center justify-center bg-background-primary text-text-primary transition-colors active:bg-background-active",
+    size === "compact" ? "type-xs-button-500 p-3" : "type-s-button-500 p-4",
     className,
   );
 
@@ -32,6 +37,7 @@ export function NavButton({
       <a
         className={buttonClassName}
         href={href}
+        onClick={onClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -43,6 +49,7 @@ export function NavButton({
   return (
     <button
       className={buttonClassName}
+      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       type="button"

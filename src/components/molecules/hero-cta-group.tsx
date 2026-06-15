@@ -13,7 +13,7 @@ export function HeroCtaGroup({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-3 sm:flex-row",
+        "flex items-center justify-center gap-3 flex-row",
         className,
       )}
     >

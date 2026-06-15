@@ -22,17 +22,17 @@ export function OperationChallengeCard({
   return (
     <article
       className={cn(
-        "flex min-w-0 flex-1 flex-col gap-4 border border-border-primary bg-background-primary p-4",
+        "flex min-w-0 flex-1 flex-col gap-3 border border-border-primary bg-background-primary p-3 lg:gap-4 lg:p-4",
         className,
       )}
     >
-      <p className="type-m-600 text-text-inactive-primary uppercase">
+      <p className="type-challenge-eyebrow text-text-inactive-primary uppercase">
         {eyebrow}
       </p>
       <LottiePreview animationData={animationData} />
-      <div className="flex flex-col gap-4">
-        <h3 className="type-h6 text-text-primary">{title}</h3>
-        <p className="type-m-body-500 text-text-primary">{subtitle}</p>
+      <div className="flex flex-col gap-3 lg:gap-4">
+        <h3 className="type-challenge-title text-text-primary">{title}</h3>
+        <p className="type-challenge-subtitle text-text-primary">{subtitle}</p>
       </div>
     </article>
   );

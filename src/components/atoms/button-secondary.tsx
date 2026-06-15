@@ -22,7 +22,9 @@ interface ButtonSecondaryProps {
   disabled?: boolean;
   href?: string;
   icon?: SecondaryButtonIcon;
+  iconSize?: number;
   onClick?: () => void;
+  size?: "compact" | "default";
   tone?: SecondaryButtonTone;
 }
 
@@ -37,7 +39,9 @@ export function ButtonSecondary({
   disabled,
   href,
   icon = "right",
+  iconSize,
   onClick,
+  size = "default",
   tone = "default",
 }: ButtonSecondaryProps) {
   const arrowIconRef = useRef<ArrowRightIconHandle | ArrowUpIconHandle>(null);
@@ -59,15 +63,26 @@ export function ButtonSecondary({
         {children}
       </TextReveal>
       {icon === "up" ? (
-        <ArrowUpIcon aria-hidden="true" ref={arrowIconRef} size={18} />
+        <ArrowUpIcon
+          aria-hidden="true"
+          ref={arrowIconRef}
+          size={iconSize ?? 18}
+        />
       ) : icon === "right" ? (
-        <ArrowRightIcon aria-hidden="true" ref={arrowIconRef} size={18} />
+        <ArrowRightIcon
+          aria-hidden="true"
+          ref={arrowIconRef}
+          size={iconSize ?? 18}
+        />
       ) : null}
     </>
   );
 
   const buttonClassName = cn(
-    "type-s-button-500 inline-flex cursor-pointer items-center justify-between border py-4 px-7 uppercase",
+    "inline-flex cursor-pointer items-center justify-between border uppercase",
+    size === "compact"
+      ? "type-xs-button-500 gap-3 p-3"
+      : "type-s-button-500 px-7 py-4",
     toneClassNames[tone],
     className,
   );
