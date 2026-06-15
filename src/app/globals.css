@@ -33,14 +33,6 @@
 }
 
 @layer utilities {
-  .type-xs-body-500 {
-    font-family: var(--font-family-inter);
-    font-size: 12.6px;
-    font-weight: 500;
-    line-height: 158%;
-    letter-spacing: 0.005em;
-  }
-
   .type-xs-button-500 {
     font-family: var(--font-family-inter);
     font-size: 12.6px;
@@ -105,51 +97,11 @@
     letter-spacing: 0;
   }
 
-  .type-heading-6-500 {
-    font-family: var(--font-family-inter);
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 144%;
-    letter-spacing: 0;
-  }
-
   .type-heading-5-500 {
     font-family: var(--font-family-inter);
     font-size: 20.25px;
     font-weight: 500;
     line-height: 138%;
-    letter-spacing: -0.005em;
-  }
-
-  .type-heading-4-500 {
-    font-family: var(--font-family-inter);
-    font-size: 22.78px;
-    font-weight: 500;
-    line-height: 132%;
-    letter-spacing: -0.005em;
-  }
-
-  .type-heading-3-500 {
-    font-family: var(--font-family-inter);
-    font-size: 25.63px;
-    font-weight: 500;
-    line-height: 125%;
-    letter-spacing: -0.005em;
-  }
-
-  .type-heading-2-500 {
-    font-family: var(--font-family-inter);
-    font-size: 28.83px;
-    font-weight: 500;
-    line-height: 125%;
-    letter-spacing: -0.005em;
-  }
-
-  .type-heading-1-500 {
-    font-family: var(--font-family-inter);
-    font-size: 32.44px;
-    font-weight: 500;
-    line-height: 123%;
     letter-spacing: -0.005em;
   }
 
@@ -217,7 +169,6 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
-
 }
 
 :root {

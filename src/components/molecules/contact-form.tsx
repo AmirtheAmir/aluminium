@@ -152,7 +152,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
   }
 
   return (
-    <div className={cn("relative flex h-full gap-20 flex-col justify-between", className)}>
+    <div className={cn("relative flex h-full flex-col justify-between gap-20", className)}>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4">
           <FormInput
@@ -181,7 +181,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
           <div className="flex items-center gap-1">
             <button
               className={cn(
-                "type-m-body-500 flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
+                "type-m-body-500 flex basis-1/2 cursor-pointer border-b p-4 text-left transition-colors",
                 values.date
                   ? "border-border-secondary text-text-primary"
                   : "border-border-primary text-text-secondary",
@@ -194,7 +194,7 @@ export function ContactForm({ className, onSubmit }: ContactFormProps) {
             <span className="w-px bg-border-primary" />
             <button
               className={cn(
-                "type-m-body-500 flex basis-1/2 cursor-pointer border border-x-0 border-t-0 p-4 text-left transition-colors",
+                "type-m-body-500 flex basis-1/2 cursor-pointer border-b p-4 text-left transition-colors",
                 values.time
                   ? "border-border-secondary text-text-primary"
                   : "border-border-primary text-text-secondary",

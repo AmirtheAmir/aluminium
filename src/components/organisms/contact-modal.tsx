@@ -96,7 +96,7 @@ export function ContactModal({
                   </p>
                 </div>
 
-                <div className="flex  min-w-0 flex-col gap-1">
+                <div className="flex min-w-0 flex-col gap-1">
                   <button
                     aria-label="Close contact modal"
                     className="ml-auto flex cursor-pointer items-center justify-center text-text-primary"

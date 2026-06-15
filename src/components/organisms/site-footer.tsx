@@ -103,14 +103,14 @@ export function SiteFooter({ className }: SiteFooterProps) {
         </div>
       </div>
 
-      <div className="overflow-hidden border-x border-b border-border-primary flex justify-center py-14">
+      <div className="flex justify-center overflow-hidden border-x border-b border-border-primary py-14">
         <p className="type-h1 whitespace-nowrap text-text-primary uppercase">
           Aluminium
         </p>
       </div>
 
       {socialNoticeOpen && (
-        <div className="fixed bottom-6 right-6 z-100 flex h-49 w-3/12 items-center justify-center bg-background-inverse p-4 e">
+        <div className="fixed bottom-6 right-6 z-100 flex h-49 w-3/12 items-center justify-center bg-background-inverse p-4">
           <p className="type-m-body-500 max-w-64 text-text-inverse">
             The social links have yet to be connected
           </p>
