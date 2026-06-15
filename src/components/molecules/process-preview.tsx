@@ -12,8 +12,8 @@ export function ProcessPreview({ label, Illustration }: ProcessPreviewProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="flex w-full flex-col gap-4 border border-border-primary px-4 pb-12 pt-4 lg:w-1/2">
-      <p className="type-m-600 text-text-secondary">{label}</p>
+    <div className="hidden w-1/2 flex-col gap-3 border border-border-primary px-3 pb-8 pt-3 min-[780px]:flex lg:gap-4 lg:px-4 lg:pb-12 lg:pt-4">
+      <p className="type-process-label text-text-secondary">{label}</p>
 
       <div className="relative flex h-109 w-full items-center justify-center overflow-hidden">
         <AnimatePresence initial={false}>

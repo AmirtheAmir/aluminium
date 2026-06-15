@@ -12,8 +12,8 @@ export function WorkflowStep({
   subtitle,
 }: WorkflowStepProps) {
   return (
-    <div className="flex gap-3">
-      <div className="relative flex h-100 w-3 shrink-0 justify-center">
+    <div className="flex gap-2 lg:gap-3">
+      <div className="relative flex h-90 w-3 shrink-0 justify-center lg:h-100">
         <span
           className={cn(
             "h-full w-0.5 transition-colors",
@@ -31,7 +31,7 @@ export function WorkflowStep({
       <div className="flex min-w-0 flex-col gap-4">
         <h3
           className={cn(
-            "type-h3 uppercase transition-colors",
+            "type-workflow-title uppercase transition-colors",
             active ? "text-text-primary" : "text-text-inactive-primary",
           )}
         >
@@ -39,7 +39,7 @@ export function WorkflowStep({
         </h3>
         <p
           className={cn(
-            "type-m-body-500 transition-colors",
+            "type-workflow-body transition-colors",
             active ? "text-text-primary" : "text-text-inactive-secondary",
           )}
         >

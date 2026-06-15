@@ -93,11 +93,11 @@ export function PricingSection({ className }: PricingSectionProps) {
 
         <BillingToggle
           activePeriod={activePeriod}
-          className="mt-12"
+          className="mt-18 lg:mt-12"
           onPeriodChange={setActivePeriod}
         />
 
-        <div className="mt-6 grid w-full grid-cols-1 gap-3 lg:grid-cols-3">
+        <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
             <PlanCard
               key={plan.name}

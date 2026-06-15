@@ -13,7 +13,7 @@ interface ProcessTimelineProps {
 
 export function ProcessTimeline({ activeIndex, steps }: ProcessTimelineProps) {
   return (
-    <div className="flex w-full flex-col gap-2 lg:w-1/2">
+    <div className="flex w-full flex-col gap-2 min-[780px]:w-1/2">
       {steps.map((step, index) => (
         <ProcessStep
           active={index === activeIndex}

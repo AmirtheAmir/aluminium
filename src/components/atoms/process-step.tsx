@@ -16,13 +16,13 @@ export function ProcessStep({
   return (
     <div
       className={cn(
-        "flex flex-col gap-2 h-1/4 border-l p-3 transition-colors",
+        "flex h-1/4 flex-col gap-2 border-l p-2 transition-colors lg:p-3",
         active ? "border-border-secondary" : "border-border-primary",
       )}
     >
       <p
         className={cn(
-          "type-m-600 uppercase",
+          "type-process-label uppercase",
           active ? "text-text-tertiary" : "text-text-inactive-primary",
         )}
       >
@@ -32,7 +32,7 @@ export function ProcessStep({
       <div className="flex flex-col gap-1">
         <h3
           className={cn(
-            "type-h6",
+            "type-process-title",
             active ? "text-text-primary" : "text-text-inactive-primary",
           )}
         >
@@ -40,7 +40,7 @@ export function ProcessStep({
         </h3>
         <p
           className={cn(
-            "type-m-body-500",
+            "type-process-body",
             active ? "text-text-primary" : "text-text-inactive-secondary",
           )}
         >

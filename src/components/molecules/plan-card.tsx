@@ -35,7 +35,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
   return (
     <article
       className={cn(
-        "flex min-w-0 flex-col gap-6 border p-4 transition-colors",
+        "flex min-w-0 flex-col gap-4 border p-3 transition-colors lg:gap-6 lg:p-4",
         hovered
           ? "border-border-secondary bg-background-inverse"
           : "border-border-primary bg-background-primary",
@@ -53,10 +53,10 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
           {plan.name}
         </p>
 
-        <div className="mt-3 flex items-end gap-1">
+        <div className="mt-2 flex items-end gap-1 lg:mt-3">
           <p
             className={cn(
-              "type-h3 transition-colors",
+              "type-plan-price transition-colors",
               hovered ? "text-text-inverse" : "text-text-primary",
             )}
           >
@@ -70,7 +70,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
           </p>
           <p
             className={cn(
-              "type-m-500 pb-2 transition-colors",
+              "type-plan-period pb-2 transition-colors",
               hovered
                 ? "text-text-inactive-inverse-primary"
                 : "text-text-inactive-primary",
@@ -83,7 +83,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
 
       <p
         className={cn(
-          "type-m-body-500 transition-colors",
+          "type-plan-body transition-colors",
           hovered ? "text-text-inverse" : "text-text-primary",
         )}
       >
@@ -99,7 +99,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
         />
         <p
           className={cn(
-            "type-s-button-500 uppercase transition-colors",
+            "type-plan-label uppercase transition-colors",
             hovered
               ? "text-text-inactive-inverse-primary"
               : "text-text-inactive-primary",
@@ -115,7 +115,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
         />
       </div>
 
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-2 lg:gap-3">
         {plan.features.map((feature) => (
           <PlanFeature inverse={hovered} key={feature}>
             {feature}

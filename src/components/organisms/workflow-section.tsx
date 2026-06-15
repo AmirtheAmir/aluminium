@@ -33,7 +33,7 @@ export function WorkflowSection({ className }: WorkflowSectionProps) {
   return (
     <section
       className={cn(
-        "grid w-full grid-cols-1 gap-3 border-b border-border-primary bg-background-primary py-36 lg:grid-cols-2",
+        "grid w-full grid-cols-1 gap-18 border-b border-border-primary bg-background-primary py-36 lg:grid-cols-2 lg:gap-3",
         className,
       )}
       id="workflow"

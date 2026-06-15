@@ -120,6 +120,22 @@
     }
   }
 
+  .type-billing-toggle {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-billing-toggle {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
   .type-hero-eyebrow {
     font-family: var(--font-family-inter);
     font-size: 14.22px;
@@ -228,6 +244,192 @@
       font-size: 14.22px;
       line-height: 155%;
       letter-spacing: 0.01em;
+    }
+  }
+
+  .type-process-label {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 126%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-process-label {
+      font-size: 14.22px;
+      line-height: 125%;
+    }
+  }
+
+  .type-process-title {
+    font-family: var(--font-family-host);
+    font-size: 21.3px;
+    font-weight: 700;
+    line-height: 114%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-process-title {
+      font-size: 18.93px;
+    }
+  }
+
+  .type-process-body {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-process-body {
+      font-size: 14.22px;
+      line-height: 155%;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .type-use-case-title {
+    font-family: var(--font-family-host);
+    font-size: 21.3px;
+    font-weight: 700;
+    line-height: 114%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-use-case-title {
+      font-size: 18.93px;
+    }
+  }
+
+  .type-use-case-body {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-use-case-body {
+      font-size: 14.22px;
+      line-height: 155%;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .type-workflow-title {
+    font-family: var(--font-family-host);
+    font-size: 38.4px;
+    font-weight: 700;
+    line-height: 115%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-workflow-title {
+      font-size: 32px;
+      line-height: 112%;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .type-workflow-body {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-workflow-body {
+      font-size: 14.22px;
+      line-height: 155%;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .type-plan-price {
+    font-family: var(--font-family-host);
+    font-size: 38.4px;
+    font-weight: 700;
+    line-height: 115%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-plan-price {
+      font-size: 32px;
+      line-height: 112%;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .type-plan-period {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 126%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-plan-period {
+      font-size: 14.22px;
+      line-height: 125%;
+    }
+  }
+
+  .type-plan-body {
+    font-family: var(--font-family-inter);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-plan-body {
+      font-size: 14.22px;
+      line-height: 155%;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .type-plan-label {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-plan-label {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
+  .type-plan-feature {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 155%;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-plan-feature {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
     }
   }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   CheckIcon,
@@ -18,6 +18,22 @@ export function PlanFeature({
   inverse = false,
 }: PlanFeatureProps) {
   const checkIconRef = useRef<CheckIconHandle>(null);
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+
+    function updateIconSize() {
+      setIsCompact(mediaQuery.matches);
+    }
+
+    updateIconSize();
+    mediaQuery.addEventListener("change", updateIconSize);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIconSize);
+    };
+  }, []);
 
   function handleMouseEnter() {
     checkIconRef.current?.startAnimation();
@@ -30,7 +46,7 @@ export function PlanFeature({
   return (
     <li
       className={cn(
-        "type-s-body-500 flex items-center gap-3 transition-colors",
+        "type-plan-feature flex items-center gap-3 transition-colors",
         inverse ? "text-text-inverse" : "text-text-tertiary",
       )}
       onMouseEnter={handleMouseEnter}
@@ -40,7 +56,7 @@ export function PlanFeature({
         aria-hidden="true"
         className="shrink-0"
         ref={checkIconRef}
-        size={18}
+        size={isCompact ? 16 : 18}
       />
       <span>{children}</span>
     </li>
