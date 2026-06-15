@@ -95,26 +95,28 @@ export async function POST(request: NextRequest) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
+      ui_mode: "embedded_page",
       line_items: [
         {
           price: priceId,
           quantity: 1,
         },
       ],
-      success_url: `${siteUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: siteUrl,
+      return_url: `${siteUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
     });
 
-    if (!session.url) {
+    if (!session.client_secret) {
       return NextResponse.json(
-        { error: "Stripe did not return a checkout URL" },
+        { error: "Stripe did not return a client secret" },
         { status: 500 },
       );
     }
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({
+      clientSecret: session.client_secret,
+    });
   } catch (error) {
-    console.error("Stripe checkout error:", error);
+    console.error("Stripe embedded checkout error:", error);
 
     const message =
       error instanceof Error

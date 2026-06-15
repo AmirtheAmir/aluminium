@@ -10,6 +10,7 @@ import {
   BillingToggle,
   type BillingPeriod,
 } from "@/components/molecules/billing-toggle";
+import { CheckoutModal } from "@/components/organisms/checkout-modal";
 import { SectionIntro } from "@/components/molecules/section-intro";
 import { cn } from "@/lib/utils";
 
@@ -73,32 +74,47 @@ const pricingPlans: PricingPlan[] = [
 
 export function PricingSection({ className }: PricingSectionProps) {
   const [activePeriod, setActivePeriod] = useState<BillingPeriod>("monthly");
+  const [checkoutPlan, setCheckoutPlan] = useState<PricingPlan | null>(null);
 
   return (
-    <section
-      className={cn(
-        "flex w-full flex-col border-b border-border-primary bg-background-primary py-36",
-        className,
-      )}
-      id="pricing"
-    >
-      <SectionIntro
-        eyebrow="Pricing"
-        subtitle="Designed for businesses that need clearer workflows, stronger ownership, and more structured ways to manage daily work."
-        title="For Teams Managing Layered Workflows, Moving Parts, And Operational Complexity"
-      />
+    <>
+      <section
+        className={cn(
+          "flex w-full flex-col border-b border-border-primary bg-background-primary py-36",
+          className,
+        )}
+        id="pricing"
+      >
+        <SectionIntro
+          eyebrow="Pricing"
+          subtitle="Designed for businesses that need clearer workflows, stronger ownership, and more structured ways to manage daily work."
+          title="For Teams Managing Layered Workflows, Moving Parts, And Operational Complexity"
+        />
 
-      <BillingToggle
-        activePeriod={activePeriod}
-        className="mt-12"
-        onPeriodChange={setActivePeriod}
-      />
+        <BillingToggle
+          activePeriod={activePeriod}
+          className="mt-12"
+          onPeriodChange={setActivePeriod}
+        />
 
-      <div className="mt-6 grid w-full grid-cols-1 gap-3 md:grid-cols-3">
-        {pricingPlans.map((plan) => (
-          <PlanCard key={plan.name} period={activePeriod} plan={plan} />
-        ))}
-      </div>
-    </section>
+        <div className="mt-6 grid w-full grid-cols-1 gap-3 md:grid-cols-3">
+          {pricingPlans.map((plan) => (
+            <PlanCard
+              key={plan.name}
+              onCheckout={setCheckoutPlan}
+              period={activePeriod}
+              plan={plan}
+            />
+          ))}
+        </div>
+      </section>
+
+      <CheckoutModal
+        onClose={() => setCheckoutPlan(null)}
+        open={Boolean(checkoutPlan)}
+        period={activePeriod}
+        plan={checkoutPlan}
+      />
+    </>
   );
 }

@@ -1,7 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  AnimatePresence,
+  animate,
+  motion,
+  useReducedMotion,
+  type AnimationPlaybackControls,
+} from "framer-motion";
 
 import { ButtonPrimary } from "@/components/atoms/button-primary";
 import { ButtonSecondary } from "@/components/atoms/button-secondary";
@@ -111,8 +117,31 @@ const recommendedPlans: Record<Plan, RecommendedPlan> = {
   },
 };
 
+const MODAL_SCROLL_SPRING = {
+  damping: 45,
+  mass: 0.8,
+  restDelta: 0.5,
+  stiffness: 180,
+};
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
 function getAnswer(answers: Record<string, string>, questionId: string) {
   return answers[questionId] ?? "";
+}
+
+function getWheelDelta(event: WheelEvent) {
+  if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) {
+    return event.deltaY * 16;
+  }
+
+  if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) {
+    return event.deltaY * window.innerHeight;
+  }
+
+  return event.deltaY;
 }
 
 function toRecommendationAnswers(
@@ -243,8 +272,10 @@ export function OperationsQuestionnaireModal({
   onClose,
   open,
 }: OperationsQuestionnaireModalProps) {
+  const questionsScrollRef = useRef<HTMLDivElement>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [step, setStep] = useState<ModalStep>("questions");
+  const shouldReduceMotion = useReducedMotion();
   const recommendationAnswers = toRecommendationAnswers(answers);
   const recommendedPlan =
     recommendedPlans[recommendPlan(recommendationAnswers)];
@@ -297,6 +328,89 @@ export function OperationsQuestionnaireModal({
   }, [open]);
 
   useEffect(() => {
+    if (!open || step !== "questions" || shouldReduceMotion) return;
+
+    const scrollElement = questionsScrollRef.current;
+
+    if (!scrollElement) return;
+
+    const scrollContainer = scrollElement;
+
+    let targetScrollTop = scrollContainer.scrollTop;
+    let isAnimating = false;
+    let scrollAnimation: AnimationPlaybackControls | null = null;
+
+    function getMaxScrollTop() {
+      return Math.max(
+        scrollContainer.scrollHeight - scrollContainer.clientHeight,
+        0,
+      );
+    }
+
+    function stopScrollAnimation() {
+      scrollAnimation?.stop();
+      scrollAnimation = null;
+      isAnimating = false;
+    }
+
+    function handleWheel(event: WheelEvent) {
+      if (
+        event.ctrlKey ||
+        event.metaKey ||
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      ) {
+        return;
+      }
+
+      const deltaY = getWheelDelta(event);
+
+      if (deltaY === 0) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      targetScrollTop = clamp(targetScrollTop + deltaY, 0, getMaxScrollTop());
+
+      scrollAnimation?.stop();
+      isAnimating = true;
+      scrollAnimation = animate(scrollContainer.scrollTop, targetScrollTop, {
+        ...MODAL_SCROLL_SPRING,
+        type: "spring",
+        onUpdate: (value) => {
+          scrollContainer.scrollTop = value;
+        },
+        onComplete: () => {
+          isAnimating = false;
+          targetScrollTop = scrollContainer.scrollTop;
+        },
+      });
+    }
+
+    function handleScroll() {
+      if (!isAnimating) {
+        targetScrollTop = scrollContainer.scrollTop;
+      }
+    }
+
+    function handleResize() {
+      targetScrollTop = clamp(targetScrollTop, 0, getMaxScrollTop());
+    }
+
+    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
+    scrollContainer.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      stopScrollAnimation();
+      scrollContainer.removeEventListener("wheel", handleWheel);
+      scrollContainer.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [open, shouldReduceMotion, step]);
+
+  useEffect(() => {
     if (!open) return;
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -344,6 +458,7 @@ export function OperationsQuestionnaireModal({
               <div
                 className="scrollbar-none flex flex-col gap-12 overflow-y-auto overscroll-contain"
                 data-native-scroll
+                ref={questionsScrollRef}
               >
                 <h2 className="type-h2 text-text-primary uppercase">
                   Questions
