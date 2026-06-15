@@ -433,6 +433,80 @@
     }
   }
 
+  .type-faq-question {
+    font-family: var(--font-family-inter);
+    font-size: 20.25px;
+    font-weight: 500;
+    line-height: 138%;
+    letter-spacing: -0.005em;
+  }
+
+  @media (max-width: 1023px) {
+    .type-faq-question {
+      font-family: var(--font-family-inter);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 144%;
+      letter-spacing: 0;
+    }
+  }
+
+  .type-footer-button {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-footer-button {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
+  .type-footer-follow {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-footer-follow {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
+  .type-footer-social {
+    font-family: var(--font-family-inter);
+    font-size: 14.22px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .type-footer-social {
+      font-size: 12.6px;
+      line-height: 127%;
+      letter-spacing: 0.005em;
+    }
+  }
+
+  .type-footer-word {
+    font-family: var(--font-family-host);
+    font-size: clamp(58px, 18vw, 340.5px);
+    font-weight: 900;
+    line-height: 75%;
+    letter-spacing: 0.01em;
+  }
+
   .type-h1 {
     font-family: var(--font-family-host);
     font-size: 340.5px;

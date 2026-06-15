@@ -51,9 +51,9 @@ export function SiteHeader({ className, onContactClick }: SiteHeaderProps) {
     >
       <div className="grid grid-cols-[25%_75%] lg:contents">
         <BrandMark
-          className="min-h-11 border-0 border-r border-border-primary lg:col-span-1 lg:border-r"
+          className=" border-0 border-r border-border-primary lg:col-span-1 lg:border-r"
           logo={Logo20}
-          logoClassName="h-5 w-auto lg:h-auto"
+          logoClassName=" w-auto lg:h-auto"
         />
         <div className="flex justify-end lg:hidden">
           <button
@@ -78,15 +78,15 @@ export function SiteHeader({ className, onContactClick }: SiteHeaderProps) {
       />
 
       {isMenuOpen ? (
-        <div className="grid grid-cols-[minmax(0,3fr)_minmax(max-content,2fr)] border-t border-border-primary lg:hidden">
+        <div className="grid grid-cols-1 border-t border-border-primary min-[460px]:grid-cols-[minmax(0,3fr)_minmax(max-content,2fr)] lg:hidden">
           <NavLinks
-            className="min-w-0 justify-start gap-0"
-            itemClassName="border-0 px-2 py-3"
+            className="min-w-0 justify-between gap-0 min-[460px]:justify-start"
+            itemClassName="border-0 p-3"
             itemSize="compact"
             onNavigate={handleNavigate}
           />
           <ButtonSecondary
-            className="min-w-max whitespace-nowrap border-0 border-l border-border-primary"
+            className="w-full whitespace-nowrap border-0 border-t border-border-primary min-[460px]:w-auto min-[460px]:min-w-max min-[460px]:border-t-0 min-[460px]:border-l"
             iconSize={16}
             onClick={handleContactClick}
             size="compact"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   PlusIcon,
@@ -21,8 +21,24 @@ export function FaqTrigger({
   question,
 }: FaqTriggerProps) {
   const [open, setOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
   const plusIconRef = useRef<PlusIconHandle>(null);
   const xIconRef = useRef<XIconHandle>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+
+    function updateIconSize() {
+      setIsCompact(mediaQuery.matches);
+    }
+
+    updateIconSize();
+    mediaQuery.addEventListener("change", updateIconSize);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIconSize);
+    };
+  }, []);
 
   function startIconAnimation() {
     if (open) {
@@ -45,7 +61,7 @@ export function FaqTrigger({
   return (
     <article
       className={cn(
-        "border border-border-primary bg-background-primary p-4 text-text-primary",
+        "border border-border-primary bg-background-primary p-3 text-text-primary lg:p-4",
         className,
       )}
       data-open={open ? "true" : "false"}
@@ -58,11 +74,15 @@ export function FaqTrigger({
         onClick={() => setOpen((currentOpen) => !currentOpen)}
         type="button"
       >
-        <span className="type-h5 font-medium">{question}</span>
+        <span className="type-faq-question">{question}</span>
         {open ? (
-          <XIcon aria-hidden="true" ref={xIconRef} size={24} />
+          <XIcon aria-hidden="true" ref={xIconRef} size={isCompact ? 26 : 28} />
         ) : (
-          <PlusIcon aria-hidden="true" ref={plusIconRef} size={24} />
+          <PlusIcon
+            aria-hidden="true"
+            ref={plusIconRef}
+            size={isCompact ? 26 : 28}
+          />
         )}
       </button>
 

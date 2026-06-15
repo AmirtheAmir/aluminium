@@ -13,6 +13,7 @@ interface SocialLinkProps {
   children: string;
   className?: string;
   href: string;
+  iconSize?: number;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
@@ -20,6 +21,7 @@ export function SocialLink({
   children,
   className,
   href,
+  iconSize = 14,
   onClick,
 }: SocialLinkProps) {
   const arrowIconRef = useRef<ArrowUpRightIconHandle>(null);
@@ -44,7 +46,7 @@ export function SocialLink({
       onMouseLeave={handleMouseLeave}
     >
       {children}
-      <ArrowUpRightIcon aria-hidden="true" ref={arrowIconRef} size={14} />
+      <ArrowUpRightIcon aria-hidden="true" ref={arrowIconRef} size={iconSize} />
     </a>
   );
 }

@@ -48,7 +48,7 @@ export function FaqSection({
   return (
     <section
       className={cn(
-        "flex w-full flex-col gap-12 bg-background-primary py-36",
+        "flex w-full flex-col gap-18 bg-background-primary py-36 lg:gap-12",
         className,
       )}
       id="faqs"

@@ -29,6 +29,7 @@ const socialLinks = [
 
 export function SiteFooter({ className }: SiteFooterProps) {
   const [socialNoticeOpen, setSocialNoticeOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
 
   useEffect(() => {
     if (!socialNoticeOpen) return;
@@ -40,11 +41,26 @@ export function SiteFooter({ className }: SiteFooterProps) {
     return () => window.clearTimeout(timeoutId);
   }, [socialNoticeOpen]);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+
+    function updateCompactState() {
+      setIsCompact(mediaQuery.matches);
+    }
+
+    updateCompactState();
+    mediaQuery.addEventListener("change", updateCompactState);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateCompactState);
+    };
+  }, []);
+
   return (
     <footer className={cn("w-full bg-background-primary pb-6 pt-36", className)}>
-      <div className="grid w-full grid-cols-1 border border-border-primary lg:grid-cols-4">
-        <div className="flex min-h-50 flex-col border-border-primary lg:border-r">
-          <div className="flex flex-1 flex-col p-4">
+      <div className="grid w-full grid-cols-1 border border-border-primary min-[460px]:grid-cols-2 lg:grid-cols-4">
+        <div className="order-1 flex min-h-50 flex-col border-border-primary min-[460px]:border-r lg:border-r">
+          <div className="flex flex-1 flex-col p-3 lg:p-4">
             <div className="flex items-center gap-2 text-text-primary">
               <Logo aria-hidden="true" />
               <p className="type-h4 uppercase">Aluminium</p>
@@ -58,17 +74,21 @@ export function SiteFooter({ className }: SiteFooterProps) {
 
         <nav
           aria-label="Footer navigation"
-          className="border-border-primary lg:border-r"
+          className="order-2 border-border-primary min-[460px]:border-r-0 lg:border-r"
         >
           {footerNavigationItems.map((item, index) => (
             <ButtonSecondary
               className={cn(
-                "w-full border-0",
+                "type-footer-button w-full border-0 p-3 lg:px-7 lg:py-4",
+                index === 0 && "max-[459px]:border-t max-[459px]:border-border-primary",
                 index !== footerNavigationItems.length - 1 &&
                   "border-b border-border-primary",
+                index === footerNavigationItems.length - 1 &&
+                  "max-[459px]:border-b max-[459px]:border-border-primary",
               )}
               href={item.href}
               icon="up"
+              iconSize={isCompact ? 16 : 18}
               key={item.label}
             >
               {item.label}
@@ -76,14 +96,16 @@ export function SiteFooter({ className }: SiteFooterProps) {
           ))}
         </nav>
 
-        <div className="flex flex-col gap-4 border-border-primary p-4 lg:border-r">
-          <p className="type-s-button-500 text-text-inactive-primary uppercase">
+        <div className="order-4 flex flex-col gap-3 border-border-primary border-t p-3 min-[460px]:border-t lg:order-3 lg:gap-4 lg:border-t-0 lg:border-r lg:p-4">
+          <p className="type-footer-follow text-text-inactive-primary uppercase">
             Follow on
           </p>
-          <div className="flex flex-col items-start gap-2">
+          <div className="flex flex-col items-start gap-1 lg:gap-2">
             {socialLinks.map((link) => (
               <SocialLink
+                className="type-footer-social gap-3 lg:gap-1"
                 href={link.href}
+                iconSize={isCompact ? 16 : 14}
                 key={link.label}
                 onClick={(event) => {
                   event.preventDefault();
@@ -96,15 +118,15 @@ export function SiteFooter({ className }: SiteFooterProps) {
           </div>
         </div>
 
-        <div className="flex min-h-50 items-end justify-end p-4">
+        <div className="order-3 flex min-h-50 items-end justify-end border-t border-border-primary p-3 min-[460px]:border-r min-[460px]:border-t lg:order-4 lg:border-r-0 lg:border-t-0 lg:p-4">
           <p className="type-s-button-600 text-text-primary">
             Created & Designed By Amir Nasseri
           </p>
         </div>
       </div>
 
-      <div className="flex justify-center overflow-hidden border-x border-b border-border-primary py-14">
-        <p className="type-h1 whitespace-nowrap text-text-primary uppercase">
+      <div className="flex justify-center overflow-hidden border-x border-b border-border-primary py-4 lg:py-14">
+        <p className="type-footer-word whitespace-nowrap text-text-primary uppercase">
           Aluminium
         </p>
       </div>
