@@ -719,6 +719,7 @@
 }
 
 :root {
+  color-scheme: only light;
   --sand-light-200: #e0e0e0;
   --sand-light-300: #d6d6d6;
   --sand-light-500: #c2c2c2;
@@ -765,6 +766,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background-primary: var(--sand-dark-200);
   --background-inverse: var(--sand-light-200);
   --background-active: var(--sand-dark-300);
@@ -791,6 +793,7 @@
 
 .orange,
 [data-theme="orange"] {
+  color-scheme: only light;
   --background-primary: var(--orange-850);
   --background-inverse: var(--sand-dark-200);
   --background-active: var(--orange-800);
@@ -821,8 +824,16 @@
   }
   body {
     @apply bg-background text-foreground;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   html {
-    @apply font-sans;
+    @apply bg-background font-sans;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
   }
 }
