@@ -9,6 +9,7 @@ import {
   type AnimationPlaybackControls,
 } from "framer-motion";
 
+import AnimatedCounter from "@/components/atoms/animated-counter";
 import { ButtonPrimary } from "@/components/atoms/button-primary";
 import { ButtonSecondary } from "@/components/atoms/button-secondary";
 import {
@@ -268,11 +269,57 @@ function Highlight({ children }: { children: string }) {
   return <span className="font-semibold underline">{children}</span>;
 }
 
+function RecommendedPricingCard({
+  onClick,
+  plan,
+}: {
+  onClick: () => void;
+  plan: RecommendedPlan;
+}) {
+  return (
+    <article className="flex min-w-0 flex-col gap-4 border border-border-secondary bg-background-inverse p-3 lg:gap-6 lg:p-4">
+      <div className="flex flex-col">
+        <p className="type-s-button-600 font-bold text-text-secondary-inverse uppercase">
+          {plan.name}
+        </p>
+
+        <div className="mt-2 flex items-end gap-1 lg:mt-3">
+          <p className="type-plan-price text-text-inverse">
+            $
+            <AnimatedCounter
+              duration={0.1}
+              from={0}
+              separator=","
+              to={plan.price}
+            />
+          </p>
+          <p className="type-plan-period pb-2 text-text-inactive-inverse-primary">
+            /Month
+          </p>
+        </div>
+      </div>
+
+      <p className="type-plan-body text-text-inverse">
+        {plan.description}
+      </p>
+
+      <ButtonPrimary
+        className="mt-auto w-full"
+        href="#pricing"
+        onClick={onClick}
+        tone="light"
+      >
+        Go To Pricing
+      </ButtonPrimary>
+    </article>
+  );
+}
+
 export function OperationsQuestionnaireModal({
   onClose,
   open,
 }: OperationsQuestionnaireModalProps) {
-  const questionsScrollRef = useRef<HTMLDivElement>(null);
+  const modalScrollRef = useRef<HTMLDivElement>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [step, setStep] = useState<ModalStep>("questions");
   const shouldReduceMotion = useReducedMotion();
@@ -328,9 +375,9 @@ export function OperationsQuestionnaireModal({
   }, [open]);
 
   useEffect(() => {
-    if (!open || step !== "questions" || shouldReduceMotion) return;
+    if (!open || shouldReduceMotion) return;
 
-    const scrollElement = questionsScrollRef.current;
+    const scrollElement = modalScrollRef.current;
 
     if (!scrollElement) return;
 
@@ -447,7 +494,7 @@ export function OperationsQuestionnaireModal({
           >
             <button
               aria-label="Close questions modal"
-              className="absolute top-1 right-1 z-10 flex cursor-pointer items-center justify-center text-text-primary min-[680px]:top-4 min-[680px]:right-4"
+              className="absolute top-3 right-3 z-10 flex cursor-pointer items-center justify-center text-text-primary min-[680px]:top-4 min-[680px]:right-4"
               onClick={handleClose}
               type="button"
             >
@@ -458,9 +505,9 @@ export function OperationsQuestionnaireModal({
               <div
                 className="scrollbar-none flex h-full min-h-0 flex-col gap-12 overflow-y-auto overscroll-contain"
                 data-native-scroll
-                ref={questionsScrollRef}
+                ref={modalScrollRef}
               >
-                <h2 className="type-h2 max-[679px]:type-h2-mobile text-text-primary uppercase">
+                <h2 className="type-questionnaire-heading text-text-primary uppercase">
                   Questions
                 </h2>
 
@@ -500,12 +547,16 @@ export function OperationsQuestionnaireModal({
                 </ButtonSecondary>
               </div>
             ) : (
-              <div className="scrollbar-none flex h-full min-h-0 flex-col justify-between gap-12 overflow-y-auto overscroll-contain">
+              <div
+                className="scrollbar-none flex h-full min-h-0 flex-col justify-between gap-12 overflow-y-auto overscroll-contain"
+                data-native-scroll
+                ref={modalScrollRef}
+              >
                 <div>
-                  <h2 className="type-h2 max-[679px]:type-h2-mobile text-text-primary uppercase">
+                  <h2 className="type-questionnaire-heading text-text-primary uppercase">
                     Tell Us More
                   </h2>
-                  <p className="type-m-500 max-[679px]:type-s-body-500 mt-6 text-text-primary min-[680px]:mt-12">
+                  <p className="type-questionnaire-recommendation-body mt-6 text-text-primary min-[680px]:mt-12">
                     Based on your answers, the{" "}
                     <Highlight>{recommendedPlan.name}</Highlight> plan is the
                     best fit for your team. You described yourself as a{" "}
@@ -538,32 +589,10 @@ export function OperationsQuestionnaireModal({
                   </p>
                 </div>
 
-                <article className="flex flex-col gap-4 border border-border-secondary bg-background-inverse p-3 text-text-inverse min-[680px]:gap-6 min-[680px]:p-4">
-                  <div>
-                    <p className="type-s-button-600 text-text-secondary-inverse uppercase">
-                      {recommendedPlan.name}
-                    </p>
-                    <div className="mt-3 flex items-end gap-1">
-                      <p className="type-h3">${recommendedPlan.price}</p>
-                      <p className="type-m-500 max-[679px]:type-s-button-500 pb-2 text-text-inactive-inverse-primary">
-                        /Month
-                      </p>
-                    </div>
-                  </div>
-
-                  <p className="type-m-body-500 max-[679px]:type-s-body-500">
-                    {recommendedPlan.description}
-                  </p>
-
-                  <ButtonPrimary
-                    className="w-full"
-                    href="#pricing"
-                    onClick={handleClose}
-                    tone="light"
-                  >
-                    Go To Pricing
-                  </ButtonPrimary>
-                </article>
+                <RecommendedPricingCard
+                  onClick={handleClose}
+                  plan={recommendedPlan}
+                />
               </div>
             )}
           </motion.section>

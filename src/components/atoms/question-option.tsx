@@ -15,7 +15,7 @@ export function QuestionOption({
 }: QuestionOptionProps) {
   return (
     <button
-      className="type-m-500 max-[679px]:type-s-button-500 flex cursor-pointer items-center gap-2 text-left text-text-primary min-[680px]:gap-3"
+      className="type-questionnaire-option flex cursor-pointer items-center gap-2 text-left text-text-primary min-[680px]:gap-3"
       onClick={onSelect}
       type="button"
     >

@@ -184,7 +184,7 @@ export function CheckoutModal({
           <motion.section
             animate={{ opacity: 1, scale: 1, y: 0 }}
             aria-modal="true"
-            className="relative flex h-162 w-5/12 flex-col overflow-hidden rounded-none border border-border-primary bg-background-primary"
+            className="relative flex h-162 w-165 flex-col overflow-hidden rounded-none border border-border-primary bg-background-primary"
             exit={{ opacity: 0, scale: 0.98, y: 12 }}
             initial={{ opacity: 0, scale: 0.98, y: 12 }}
             onClick={(event) => event.stopPropagation()}
