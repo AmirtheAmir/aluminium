@@ -19,10 +19,10 @@ const Lottie = dynamic<LottieComponentProps>(() => import("lottie-react"), {
 const CSS_VARIABLE_PATTERN = /^var\((--[^,\s)]+)(?:,\s*([^)]+))?\)$/;
 
 const FALLBACK_COLORS: Record<string, string> = {
-  "--background-primary": "#dee0e2",
-  "--ocean-500": "#0f3b6b",
-  "--sand-dark-200": "#1d1f21",
-  "--sand-light-200": "#dee0e2",
+  "--background-primary": "#e0e0e0",
+  "--orange-850": "#f55f14",
+  "--sand-dark-200": "#1f1f1f",
+  "--sand-light-200": "#e0e0e0",
 };
 
 const DEFAULT_LOTTIE_THEME_COLORS = {
@@ -40,8 +40,8 @@ interface LottiePreviewProps {
 function getCurrentTheme() {
   const root = document.documentElement;
 
-  if (root.dataset.theme === "blue" || root.classList.contains("blue")) {
-    return "blue";
+  if (root.dataset.theme === "orange" || root.classList.contains("orange")) {
+    return "orange";
   }
 
   if (root.dataset.theme === "dark" || root.classList.contains("dark")) {
@@ -76,7 +76,7 @@ function resolveCssVariable(variableName: string, fallbackColor: string) {
 function getLottieThemeColors() {
   const theme = getCurrentTheme();
   const strokeVariable =
-    theme === "light" ? "--sand-dark-200" : "--sand-light-200";
+    theme === "dark" ? "--sand-light-200" : "--sand-dark-200";
 
   return {
     fill: resolveCssVariable(

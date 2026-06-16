@@ -7,19 +7,19 @@ import { cn } from "@/lib/utils";
 const TWO_PI = Math.PI * 2;
 const CSS_VARIABLE_PATTERN = /^var\((--[^,\s)]+)(?:,\s*([^)]+))?\)$/;
 const FALLBACK_COLORS: Record<string, string> = {
-  "--dot-field-gradient-from": "#bdc2c7",
-  "--dot-field-gradient-to": "#a7adb4",
-  "--dot-field-glow-color": "#dee0e2",
-  "--sand-light-500": "#bdc2c7",
-  "--sand-light-600": "#a7adb4",
-  "--sand-light-200": "#dee0e2",
-  "--sand-dark-500": "#383d42",
-  "--sand-dark-600": "#4b5258",
-  "--sand-dark-200": "#1d1f21",
-  "--ocean-500": "#0f3b6b",
-  "--ocean-600": "#145090",
-  "--ocean-700": "#1863b4",
-  "--background-primary": "#dee0e2",
+  "--dot-field-gradient-from": "#c2c2c2",
+  "--dot-field-gradient-to": "#adadad",
+  "--dot-field-glow-color": "#e0e0e0",
+  "--sand-light-500": "#c2c2c2",
+  "--sand-light-600": "#adadad",
+  "--sand-light-200": "#e0e0e0",
+  "--sand-dark-500": "#3d3d3d",
+  "--sand-dark-600": "#525252",
+  "--sand-dark-200": "#1f1f1f",
+  "--orange-700": "#b04007",
+  "--orange-800": "#d84e09",
+  "--orange-850": "#f55f14",
+  "--background-primary": "#e0e0e0",
 };
 
 interface Dot {

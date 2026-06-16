@@ -7,14 +7,14 @@ import {
   type ContrastIconHandle,
 } from "@/components/ui/contrast";
 
-type Theme = "light" | "dark" | "blue";
+type Theme = "light" | "dark" | "orange";
 
 const THEME_STORAGE_KEY = "aluminium-theme";
 
 const themeCycles: Record<Theme, Theme[]> = {
-  light: ["light", "dark", "blue"],
-  dark: ["dark", "light", "blue"],
-  blue: ["blue", "light", "dark"],
+  light: ["light", "dark", "orange"],
+  dark: ["dark", "light", "orange"],
+  orange: ["orange", "light", "dark"],
 };
 
 function getStoredTheme(): Theme | null {
@@ -22,7 +22,7 @@ function getStoredTheme(): Theme | null {
 
   const theme = window.localStorage.getItem(THEME_STORAGE_KEY);
 
-  return theme === "dark" || theme === "blue" || theme === "light"
+  return theme === "dark" || theme === "orange" || theme === "light"
     ? theme
     : null;
 }
@@ -30,7 +30,7 @@ function getStoredTheme(): Theme | null {
 function getCurrentTheme(): Theme {
   const root = document.documentElement;
 
-  if (root.classList.contains("blue")) return "blue";
+  if (root.classList.contains("orange")) return "orange";
   if (root.classList.contains("dark")) return "dark";
 
   return "light";
@@ -40,7 +40,7 @@ function applyTheme(theme: Theme) {
   const root = document.documentElement;
 
   root.classList.toggle("dark", theme === "dark");
-  root.classList.toggle("blue", theme === "blue");
+  root.classList.toggle("orange", theme === "orange");
   root.dataset.theme = theme;
   window.localStorage.setItem(THEME_STORAGE_KEY, theme);
 }
