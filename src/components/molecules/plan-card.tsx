@@ -124,7 +124,7 @@ export function PlanCard({ onCheckout, period, plan }: PlanCardProps) {
       </ul>
 
       <ButtonPrimary
-        className="mt-auto w-full"
+        className="mt-auto w-full lg:w-full"
         onClick={() => onCheckout(plan)}
         tone={hovered ? "light" : "dark"}
       >
